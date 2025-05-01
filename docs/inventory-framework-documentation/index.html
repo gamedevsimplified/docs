@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.7.0.799422285339">
+
+    <!-- See retype.com -->
+    <meta name="generator" content="Retype 3.7.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Inventory Framework Documentation</title>
+    <meta name="title" content="Inventory Framework Documentation">
+    <meta name="description" content="The purpose of this package is to provide a versatile and extensible solution for creating inventories in Unity.">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="/docs/inventory-framework-documentation/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/docs/inventory-framework-documentation/">
+    <meta property="og:title" content="Inventory Framework Documentation">
+    <meta property="og:description" content="The purpose of this package is to provide a versatile and extensible solution for creating inventories in Unity.">
+    <meta property="og:image" content="/static/image1.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="/docs/inventory-framework-documentation/">
+    <meta property="twitter:title" content="Inventory Framework Documentation">
+    <meta property="twitter:description" content="The purpose of this package is to provide a versatile and extensible solution for creating inventories in Unity.">
+    <meta property="twitter:image" content="/static/image1.png">
+
+    <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
+
+    <link href="../../resources/css/retype.css?v=3.7.0.799422285339" rel="stylesheet">
+
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.7.0.799422285339" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=3.7.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.7.0.799422285339" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.7.0.799422285339" defer></script>
+</head>
+<body>
+    <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
+        <div class="absolute bottom-0 left-0 bg-gray-100 dark:bg-dark-800" style="top: 5rem; right: 50%"></div>
+    
+        <header id="docs-site-header" class="sticky top-0 z-30 flex w-full h-16 bg-white border-b border-gray-200 md:h-20 dark:bg-dark-850 dark:border-dark-650">
+            <div class="container relative flex items-center justify-between pr-6 grow md:justify-start">
+                <!-- Mobile menu button skeleton -->
+                <button v-cloak class="skeleton docs-mobile-menu-button flex items-center justify-center shrink-0 overflow-hidden dark:text-white focus:outline-none rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
+                <div v-cloak id="docs-sidebar-toggle"></div>
+        
+                <!-- Logo -->
+                <div class="flex items-center justify-between h-full py-2 md:w-75">
+                    <div class="flex items-center px-2 md:px-6">
+                        <a id="docs-site-logo" href="../../" class="flex items-center leading-snug text-xl">
+                            <span class="w-10 mr-2 grow-0 shrink-0 overflow-hidden">
+                                <img class="max-h-10 dark:hidden md:inline-block" src="../../static/logo.jpg">
+                                <img class="max-h-10 hidden dark:inline-block" src="../../static/logo.jpg">
+                            </span>
+                            <span class="dark:text-white font-semibold line-clamp-1 md:line-clamp-2">GameDevSimplified</span>
+                        </a>
+                    </div>
+        
+                    <span class="hidden h-8 border-r md:inline-block dark:border-dark-650"></span>
+                </div>
+        
+                <div class="flex justify-between md:grow">
+                    <!-- Top Nav -->
+                    <nav class="hidden md:flex">
+                        <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
+                            <li class="mr-6">
+                                <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://retype.com/guides/getting-started/">Getting Started</a>
+                            </li>
+        
+                        </ul>
+                    </nav>
+        
+                    <!-- Header Right Skeleton -->
+                    <div v-cloak class="flex justify-end grow skeleton">
+        
+                        <!-- Search input mock -->
+                        <div class="relative hidden w-40 lg:block lg:max-w-sm lg:ml-auto">
+                            <div class="absolute flex items-center justify-center h-full pl-3 dark:text-dark-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon-base" width="16" height="16" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 1px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                            </div>
+                            <input class="w-full h-10 placeholder-gray-400 transition-colors duration-200 ease-in bg-gray-200 border border-transparent rounded md:text-sm hover:bg-white hover:border-gray-300 focus:outline-none focus:bg-white focus:border-gray-500 dark:bg-dark-600 dark:border-dark-600 dark:placeholder-dark-400" style="padding: 0.625rem 0.75rem 0.625rem 2rem" type="text" placeholder="Search">
+                        </div>
+        
+                        <!-- Mobile search button -->
+                        <div class="flex items-center justify-center w-10 h-10 lg:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="20" height="20" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor" ><path d="M21.71 20.29l-3.68-3.68A8.963 8.963 0 0020 11c0-4.96-4.04-9-9-9s-9 4.04-9 9 4.04 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.2.19.45.29.71.29s.51-.1.71-.29c.39-.39.39-1.03 0-1.42zM4 11c0-3.86 3.14-7 7-7s7 3.14 7 7c0 1.92-.78 3.66-2.04 4.93-.01.01-.02.01-.02.01-.01.01-.01.01-.01.02A6.98 6.98 0 0111 18c-3.86 0-7-3.14-7-7z" ></path></g></svg>
+                        </div>
+        
+                        <!-- Dark mode switch placeholder -->
+                        <div class="w-10 h-10 lg:ml-2"></div>
+        
+                        <!-- History button -->
+                        <div class="flex items-center justify-center w-10 h-10" style="margin-right: -0.625rem;">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 icon-base" width="22" height="22" viewBox="0 0 24 24" aria-labelledby="icon" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor" ><g ><path d="M12.01 6.01c-.55 0-1 .45-1 1V12a1 1 0 00.4.8l3 2.22a.985.985 0 001.39-.2.996.996 0 00-.21-1.4l-2.6-1.92V7.01c.02-.55-.43-1-.98-1z"></path><path d="M12.01 1.91c-5.33 0-9.69 4.16-10.05 9.4l-.29-.26a.997.997 0 10-1.34 1.48l1.97 1.79c.19.17.43.26.67.26s.48-.09.67-.26l1.97-1.79a.997.997 0 10-1.34-1.48l-.31.28c.34-4.14 3.82-7.41 8.05-7.41 4.46 0 8.08 3.63 8.08 8.09s-3.63 8.08-8.08 8.08c-2.18 0-4.22-.85-5.75-2.4a.996.996 0 10-1.42 1.4 10.02 10.02 0 007.17 2.99c5.56 0 10.08-4.52 10.08-10.08.01-5.56-4.52-10.09-10.08-10.09z"></path></g></g></svg>
+                        </div>
+                    </div>
+        
+                    <div v-cloak class="flex justify-end grow">
+                        <div id="docs-mobile-search-button"></div>
+                        <doc-search-desktop></doc-search-desktop>
+        
+                        <doc-theme-switch class="lg:ml-2"></doc-theme-switch>
+                        <doc-history></doc-history>
+                    </div>
+                </div>
+            </div>
+        </header>
+    
+        <div class="container relative flex bg-white">
+            <!-- Sidebar Skeleton -->
+            <div v-cloak class="fixed flex flex-col shrink-0 duration-300 ease-in-out bg-gray-100 border-gray-200 sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton dark:bg-dark-800 dark:border-dark-650">
+            
+                <div class="flex items-center h-16 px-6">
+                    <input class="w-full h-8 px-3 py-2 transition-colors duration-200 ease-linear bg-white border border-gray-200 rounded shadow-none text-sm focus:outline-none focus:border-gray-600 dark:bg-dark-600 dark:border-dark-600" type="text" placeholder="Filter">
+                </div>
+            
+                <div class="pl-6 mt-1 mb-4">
+                    <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-32 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-48 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                    <div class="w-40 h-3 mb-4 bg-gray-200 rounded-full loading dark:bg-dark-600"></div>
+                </div>
+            
+                <div class="shrink-0 mt-auto bg-transparent dark:border-dark-650">
+                    <a class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                        <span class="text-xs whitespace-nowrap">Powered by</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Sidebar component -->
+            <doc-sidebar v-cloak>
+                <template #sidebar-footer>
+                    <div class="shrink-0 mt-auto border-t md:bg-transparent md:border-none dark:border-dark-650">
+            
+                        <div class="py-3 px-6 md:hidden border-b dark:border-dark-650">
+                            <nav>
+                                <ul class="flex flex-wrap justify-center items-center">
+                                    <li class="mr-6">
+                                        <a class="block py-1 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://retype.com/guides/getting-started/">Getting Started</a>
+                                    </li>
+            
+                                </ul>
+                            </nav>
+                        </div>
+            
+                        <a class="flex items-center justify-center flex-nowrap h-16 text-gray-400 dark:text-dark-400 hover:text-gray-700 dark:hover:text-dark-300 transition-colors duration-150 ease-in docs-powered-by" target="_blank" href="https://retype.com/" rel="noopener">
+                            <span class="text-xs whitespace-nowrap">Powered by</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" fill="currentColor" width="96" height="20" overflow="visible"><path d="M0 0v20h13.59V0H0zm11.15 17.54H2.44V2.46h8.71v15.08zM15.8 20h2.44V4.67L15.8 2.22zM20.45 6.89V20h2.44V9.34z"/><g><path d="M40.16 8.44c0 1.49-.59 2.45-1.75 2.88l2.34 3.32h-2.53l-2.04-2.96h-1.43v2.96h-2.06V5.36h3.5c1.43 0 2.46.24 3.07.73s.9 1.27.9 2.35zm-2.48 1.1c.26-.23.38-.59.38-1.09 0-.5-.13-.84-.4-1.03s-.73-.28-1.39-.28h-1.54v2.75h1.5c.72 0 1.2-.12 1.45-.35zM51.56 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92h4.74v1.83h-6.79V5.36h6.64zM60.09 7.15v7.48h-2.06V7.15h-2.61V5.36h7.28v1.79h-2.61zM70.81 14.64h-2.06v-3.66l-3.19-5.61h2.23l1.99 3.45 1.99-3.45H74l-3.19 5.61v3.66zM83.99 6.19c.65.55.97 1.4.97 2.55s-.33 1.98-1 2.51-1.68.8-3.04.8h-1.23v2.59h-2.06V5.36h3.26c1.42 0 2.45.28 3.1.83zm-1.51 3.65c.25-.28.37-.69.37-1.22s-.16-.92-.48-1.14c-.32-.23-.82-.34-1.5-.34H79.7v3.12h1.38c.68 0 1.15-.14 1.4-.42zM95.85 5.36V7.2h-4.59v1.91h4.13v1.76h-4.13v1.92H96v1.83h-6.79V5.36h6.64z"/></g></svg>
+                        </a>
+                    </div>
+                </template>
+            </doc-sidebar>
+    
+            <div class="grow min-w-0 dark:bg-dark-850">
+                <!-- Render "toolbar" template here on api pages --><!-- Render page content -->
+                <div class="flex">
+                    <div class="min-w-0 p-4 grow md:px-16">
+                        <main class="relative pb-12 lg:pt-2">
+                            <div class="docs-markdown" id="docs-content">
+                                <!-- Rendered if sidebar right is enabled -->
+                                <div id="docs-sidebar-right-toggle"></div>
+                                <!-- Page content  -->
+<doc-anchor-target id="inventory-framework-documentation" class="break-words">
+    <h1>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#inventory-framework-documentation">#</doc-anchor-trigger>
+        <span>Inventory Framework Documentation</span>
+    </h1>
+</doc-anchor-target>
+<doc-anchor-target id="introduction">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#introduction">#</doc-anchor-trigger>
+        <span>Introduction</span>
+    </h2>
+</doc-anchor-target>
+<p>The purpose of this package is to provide a versatile and extensible solution for creating inventories in Unity. Its design allows developers to quickly set up functional inventories while offering the flexibility to adapt to custom use cases. The framework supports a variety of inventory types, making it suitable for a wide range of games.</p>
+<p>The predefined inventory types are:</p>
+<ul>
+<li><strong>List/Grid Inventory</strong>: A straightforward collection of items arranged as a list or a grid.</li>
+<li><strong>Equipment Inventory</strong>: Ideal for RPGs or games with wearable gear.</li>
+<li><strong>Advanced Grid Inventory</strong>: Supports items of varying sizes (<em>Not available in Lite</em>).</li>
+<li><strong>Puzzle Inventory</strong>: A grid system for rotatable shapes (<em>Not available in Lite</em>).</li>
+</ul>
+<p>Built on <strong>UI Toolkit</strong>, it offers advanced styling and layout capabilities while avoiding the overhead of GameObjects and Prefabs. Learn more in the <a href="https://docs.unity3d.com/Manual/UIElements.html">UI Toolkit documentation</a>.
+It also comes bundled with an abstract yet powerful <strong>item system</strong> that minimizes setup while supporting diverse use cases.</p>
+<p>This framework is currently targeted at <strong>programmers</strong>. It lacks designer-friendly features such as custom editors or Scriptable Objects, so some coding is required to implement custom functionality. Support for Scriptable Objects may come in the next update.</p>
+<doc-anchor-target id="getting-started">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#getting-started">#</doc-anchor-trigger>
+        <span>Getting started</span>
+    </h2>
+</doc-anchor-target>
+<p>To get started, check out the 2 demos included in the <em>Lite</em> version - &quot;Minimal&quot; and &quot;Basic&quot;.</p>
+<p>The <strong>Minimal</strong> demo has the least amount of code needed to setup a working inventory. It is a great starting point to familiarize yourself with the fundamentals of the framework. It consists of one inventory, some items and the simplest behavior of moving items around.</p>
+<p><figure class="content-center">
+    <img src="../../static/image1.png" alt="">
+    <figcaption class="caption"></figcaption>
+</figure>
+<figure class="content-center">
+    <img src="../../images/image2.png" alt="">
+    <figcaption class="caption"></figcaption>
+</figure>
+<figure class="content-center">
+    <img src="../../static/pastedimage20250214202313.png" alt="">
+    <figcaption class="caption"></figcaption>
+</figure>
+<figure class="content-center">
+    <img src="../../static/images/pastedimage20241127185839.png" alt="">
+    <figcaption class="caption"></figcaption>
+</figure>
+</p>
+<p>The <strong>Basic</strong> demo is a <em>Minecraft</em>-inspired inventory featuring the following:</p>
+<ul>
+<li>A <code v-pre>main inventory</code> window consisting of equipment, inventory and a consumables hot-bar</li>
+<li>A <code v-pre>vendor</code> window where you can buy pre-defined items and sell items from your inventory.</li>
+<li>A <code v-pre>treasure chest</code> window, which has some items that you can pick but cannot place anything back. You can also pick all at once.</li>
+<li>A <code v-pre>crafting bench</code> window, which has slots for materials and an outcome slot. Placing materials in the correct order will populate the outcome slot. Picking the item from outcome slot will &quot;craft&quot; the item.</li>
+<li>A <code v-pre>stash</code> window, which is an inventory you can store items in.</li>
+<li>A way to drop items on the &quot;ground&quot;.</li>
+<li>A way to destroy items, by dragging them over a designated area.</li>
+<li>All this is integrated in a minimalistic 3d scene.</li>
+</ul>
+<p>![[images/Pasted image 20241127185839.png]]
+![[images/Pasted image 20250214194930.png]]</p>
+<doc-anchor-target id="installation">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#installation">#</doc-anchor-trigger>
+        <span>Installation</span>
+    </h2>
+</doc-anchor-target>
+<p>You can install the package from Unity Package Manager.
+There are no external dependencies.</p>
+<doc-anchor-target id="core-concepts">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#core-concepts">#</doc-anchor-trigger>
+        <span>Core Concepts</span>
+    </h2>
+</doc-anchor-target>
+<p>The framework is built around several key concepts that define its structure and behavior. Understanding these will help you make the most of its features.</p>
+<doc-anchor-target id="item">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#item">#</doc-anchor-trigger>
+        <span>Item</span>
+    </h3>
+</doc-anchor-target>
+<p>An <strong>Item</strong> is a data type that represents an individual object in an inventory. It is highly flexible and comprises two main components:</p>
+<ul>
+<li><strong>Base</strong>: Contains fixed properties like ID, name, and icon path.</li>
+<li><strong>Data</strong>: Holds dynamic properties such as quantity or rarity.</li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-csharp"><code v-pre class="language-csharp">// Item.cs
+public record Item(int Id, ItemBase ItemBase, ItemData ItemData)
+public record ItemBase(string Id, string Name, string IconPath, bool Stackable, Size Size);
+public record ItemData(int Quant = 1);</code></pre>
+</doc-codeblock></div>
+<p>This architecture is heavily inspired from RPGs like <a href="https://diablo2.io/base/">Diablo</a> and <a href="https://www.poewiki.net/wiki/Body_armour">Path of Exile</a> but the separation ensures adaptability to fit various gameplay scenarios.</p>
+<doc-anchor-target id="slot">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#slot">#</doc-anchor-trigger>
+        <span>Slot</span>
+    </h3>
+</doc-anchor-target>
+<p>A <strong>Slot</strong> is a container that can either hold an <strong>Item</strong> or remain empty. Slots can enforce <strong>restrictions</strong>, such as allowing only specific types of items, by providing a function (<code v-pre>Accepts</code>) that operates on <code v-pre>Item</code> type.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<div class="codeblock-title">Inventory.cs</div>
+<pre class="language-csharp"><code v-pre class="language-csharp">public delegate bool FilterFn(Item item);
+public record Slot(Item Item) { 
+	public FilterFn Accepts = (_) =&gt; true; 
+};</code></pre>
+</doc-codeblock></div>
+<p>The base <code v-pre>Slot</code> type is extended into specialized slot types:</p>
+<ul>
+<li><code v-pre>ListSlot</code>: Index-based storage.</li>
+<li><code v-pre>SetSlot</code>: Named slots for equipment/wearable items.</li>
+<li><code v-pre>GridSlot</code> (<em>not available in Lite</em>): Grid-based position storage.</li>
+</ul>
+<doc-anchor-target id="inventory">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#inventory">#</doc-anchor-trigger>
+        <span>Inventory</span>
+    </h3>
+</doc-anchor-target>
+<p>An <strong>Inventory</strong> manages a collection of <strong>Slots</strong>. Each inventory type comes with its own behavior and can enforce restrictions on accepted items. The base inventory type is  <code v-pre>Bag</code> , a short and descriptive name.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<div class="codeblock-title">Types.cs</div>
+<pre class="language-csharp"><code v-pre class="language-csharp">
+public abstract record Bag(string Id) {
+	public static NoBag NoBag = new();
+	public FilterFn Accepts = Filters.Everything;
+}</code></pre>
+</doc-codeblock></div>
+<p>The base <code v-pre>Bag</code> type is extended into specialized types:</p>
+<ul>
+<li><code v-pre>ListBag</code>: Contains a list of <code v-pre>ListSlots</code></li>
+<li><code v-pre>SetBag</code>: Contains a list of <code v-pre>SetSlots</code></li>
+<li><code v-pre>GridBag</code> (<em>not available in Lite</em>): Contains a 2D array of <code v-pre>GridSlots</code> as well as a list of <code v-pre>GridItems</code></li>
+</ul>
+<doc-anchor-target id="event-bus-and-events">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#event-bus-and-events">#</doc-anchor-trigger>
+        <span>Event Bus and Events</span>
+    </h3>
+</doc-anchor-target>
+<p>The framework uses an <a href="https://dzone.com/articles/design-patterns-event-bus"><strong>Event Bus</strong></a> to decouple its components. <strong>Events</strong> are data containers describing actions, such as picking up an item. For example, a <code v-pre>PickItem</code> event includes the item itself, the source inventory and slot.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-csharp"><code v-pre class="language-csharp">// Events.cs
+public record PickItemEvent(Bag Bag, Item Item, Slot Slot);</code></pre>
+</doc-codeblock></div>
+<p>An event does not perform any actions itself, that falls under the responsibility of the <strong>Store</strong>.</p>
+<doc-anchor-target id="store">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#store">#</doc-anchor-trigger>
+        <span>Store</span>
+    </h3>
+</doc-anchor-target>
+<p>Inspired by web technologies like <a href="https://redux.js.org/faq/general#when-should-i-use-redux"><strong>Redux</strong></a>, the <strong>Store</strong> serves as the central hub for managing system state. It subscribes to events on event channels and performs necessary state updates. All changes to the system state flow through the <strong>Store</strong>, ensuring consistency and predictability.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-csharp"><code v-pre class="language-csharp">// Store.cs
+public Store() {
+	Bus.Subscribe&lt;PickItemEvent&gt;(e =&gt; OnPickItem(e as PickItemEvent));
+	// ...
+}
+
+void OnPickItem(PickItemEvent e) {
+	LogEvent(e);
+	// ...
+}</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="item-database">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#item-database">#</doc-anchor-trigger>
+        <span>Item Database</span>
+    </h3>
+</doc-anchor-target>
+<p>This is your repository of item bases and all the types that fully describe and categorize them.
+For example an <em>Apple</em> is defined as a <strong>stackable</strong>, <strong>consumable</strong> <strong>basic item</strong>, while a <em>Dagger</em> is a <strong>1-handed</strong> <strong>weapon</strong>, with <em>Attack Damage</em> and <em>Attack Speed</em></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-csharp"><code v-pre class="language-csharp">// Types.cs
+public record ItemBase(BaseId BaseId, string Name, string IconPath, bool Stackable, ItemClass Class);
+
+public record WeaponItemBase(BaseId BaseId, string Name, string IconPath, ItemClass Class, int Attack, float AttackSpeed)
+//...
+public static ItemBase Apple = new(&quot;Apple&quot;, &quot;Apple&quot;, &quot;Shared/Images/items/apple&quot;, true, ItemClass.Consumable);
+
+public static WeaponItemBase ShortSword = new(&quot;ShortSword&quot;, &quot;Short Sword&quot;, &quot;Shared/Images/items/sword-blue&quot;, ItemClass.Weapon1H, 80, 1.5f);</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="behaviors">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#behaviors">#</doc-anchor-trigger>
+        <span>Behaviors</span>
+    </h3>
+</doc-anchor-target>
+<p>The UI is decoupled from any interactivity logic. All logic is abstracted away in behaviors, like showing a tooltip on hovering an item, dragging an item to pick it up or showing a &quot;ghost&quot; version of the dragged item.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-csharp"><code v-pre class="language-csharp">// Behaviors.cs
+public static VisualElement WithDragToPickBehavior(this VisualElement element, Observable&lt;Item&gt; draggedItem, EventBus bus) {/*...*/}
+
+public static VisualElement WithItemTooltipBehavior&lt;T&gt;(this VisualElement root) where T : Component&lt;Item&gt; {/*...*/}
+
+// RootLayer.cs
+this.Add(&quot;root-layer&quot;)
+	.WithDragToPickBehavior(Store.Instance.DraggedItem, Store.Bus)
+	.WithGhostItemBehavior&lt;BasicItemView&gt;(Store.Instance.DraggedItem)
+	.WithItemTooltipBehavior&lt;Tooltip&gt;();
+</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="technical-details">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#technical-details">#</doc-anchor-trigger>
+        <span>Technical Details</span>
+    </h2>
+</doc-anchor-target>
+<p>The framework takes a <strong>functional programming approach</strong>, emphasizing simplicity and separation of concerns. It uses the a common &quot;good&quot; practice of <em>Composition</em> over <em>Inheritance</em> and not so common convention of <em>Rules</em> over <em>Conditions</em> (pattern matching).</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-csharp"><code v-pre class="language-csharp">// InventoryExtensions.cs
+public static (bool, Item) PlaceItem(this Bag bag, Item item, Slot slot){
+	return (bag, slot) switch {
+		(GridBag b, GridSlot s) =&gt; PlaceItem(b, item, s),
+		(SetBag b, SetSlot s) =&gt; PlaceItem(b, item, s),
+		(ListBag b, ListSlot s) =&gt; PlaceItem(b, item, s),
+		_ =&gt; (false, Item.NoItem)
+	};
+}</code></pre>
+</doc-codeblock></div>
+<p><a href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/record"><strong>C# Records</strong></a> are used to model data types. They offer concise syntax, value-like behavior and are immutable by default. The <a href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/record#immutability">immutability</a> aspect is particularly useful for <strong>View</strong> Components, as it simplifies determining whether a re-render is necessary.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-csharp"><code v-pre class="language-csharp">// Item.cs
+public record Item(int Id, ItemBase ItemBase, ItemData ItemData)</code></pre>
+</doc-codeblock></div>
+<p>A type&#x27;s behavior is implemented via <strong>extension methods</strong> to keep the data structures clean and focused. This prevents behavior inheritance, which is a big pain-point in classic OOP design.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-csharp"><code v-pre class="language-csharp">// InventoryExtensions.cs
+public static Slot Clear(this Slot slot) =&gt; slot with { Item = Item.NoItem };</code></pre>
+</doc-codeblock></div>
+<p>To ensure proper input validation when creating new instances, each data type comes with one or more <strong>factory</strong> functions. For example, an <strong>Item</strong> can be created by providing both an <code v-pre>ItemBase</code> and an <code v-pre>ItemData</code> or just an <code v-pre>ItemBase</code>. In either case, the item <code v-pre>Id</code> will be automatically generated.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-csharp"><code v-pre class="language-csharp">// Item.cs
+public static class ItemFactory {
+	public static Item Create(ItemBase itemBase, ItemData itemData) =&gt; new(Id(), itemBase, itemData);
+
+	public static Item Create(ItemBase itemBase) =&gt; new(Id(), itemBase, NoItemData);
+	//...
+}</code></pre>
+</doc-codeblock></div>
+<p>To represent the absence of an object the <a href="https://en.wikipedia.org/wiki/Null_object_pattern"><strong>null object pattern</strong></a> is employed in favor of the classic <em>null</em> reference. This means that most types have an associated void type: <code v-pre>Item =&gt; NoItem</code> which acts like the <a href="https://en.wikipedia.org/wiki/Identity_element#:%7E:text=In%20mathematics%2C%20an%20identity%20element,such%20as%20groups%20and%20rings.">identity element</a> from algebra. One of the main advantages of this approach is that an operation can be performed on a an item or a collection of items without the need of a null check beforehand. An operation like this will have no effect on the item, if it is a <code v-pre>NoItem</code>.</p>
+<doc-anchor-target id="ui-toolkit-integration">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#ui-toolkit-integration">#</doc-anchor-trigger>
+        <span>UI Toolkit Integration</span>
+    </h2>
+</doc-anchor-target>
+<p>The framework leverages <strong>UI Toolkit</strong> for rendering inventory views. It provides a declarative way to define elements, their data, and their styles using C# and USS, while completely avoiding <strong>UXML</strong>. The reason for bypassing UXML is that data binding, referencing elements and working with the  UXML asset, all come with levels of verbosity and complexity that drastically slow down productivity. This means, however, that the included visual components (inventories, windows, slots) cannot be viewed in Unity&#x27;s <strong>UI Builder</strong>. You can still use the UI Builder to design own custom components if you prefer so.
+Since UI Toolkit is heavily based on web technologies, the framework proposes web-inspired nomenclature, such as:</p>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model"><strong>DOM</strong></a>: Utility functions for managing elements.</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div"><strong>DIV</strong></a>: A shorthand alias for <code v-pre>VisualElement</code>.</li>
+</ul>
+<doc-anchor-target id="how-it-works">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#how-it-works">#</doc-anchor-trigger>
+        <span>How it works</span>
+    </h2>
+</doc-anchor-target>
+<p>![[Pasted image 20250214202313.png]]</p>
+<p>From a birds eye view, the system consists of a <code v-pre>data store</code>, an <code v-pre>event bus</code> and <code v-pre>UI</code>
+When the user interacts with the UI, let&#x27;s say <em>picks an item from a slot</em>, an event is put on the event bus.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-csharp"><code v-pre class="language-csharp">// Behaviors.cs
+CustomEvent evt = new PickItemEvent(t.Bag, t.Data.Item, t.Data, e.modifiers)                    
+
+bus.Publish(evt);</code></pre>
+</doc-codeblock></div>
+<p>The <code v-pre>Store</code>, having subscribed to the event, sends its data to a handler function which will update the <code v-pre>bag</code>.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-csharp"><code v-pre class="language-csharp">// Store.cs
+Bus.Subscribe&lt;PickItemEvent&gt;(e =&gt; OnPickItem(e as PickItemEvent));
+void OnPickItem(PickItemEvent e) {
+	//...
+	bag.Notify();	
+}</code></pre>
+</doc-codeblock></div>
+<p>Then, any view that is observing the bag will update itself.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-csharp"><code v-pre class="language-csharp">// ListBagView.cs
+this.Observe(bag.Data, (slots) =&gt; {/*...*/});</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="how-to-use-the-framework">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#how-to-use-the-framework">#</doc-anchor-trigger>
+        <span>How to Use the Framework</span>
+    </h2>
+</doc-anchor-target>
+<ol>
+<li><strong>Set up an inventory</strong>: Start by modifying or cloning one of the provided demos. Cloning ensures you don’t lose your changes when updating the package.</li>
+<li><strong>Add new items</strong>:
+<ul>
+<li>Define a new item base in the <code v-pre>Bases</code> static class (<code v-pre>Basic/Inventory/Types.cs</code>)</li>
+<li>Use the <code v-pre>ItemFactory.Create</code> function to create the item.</li>
+<li>Add the item to an inventory using <code v-pre>AddItem</code> or <code v-pre>SetItems</code> in the <em>Store</em>&#x27;s <code v-pre>Reset</code> method.</li>
+</ul>
+</li>
+<li><strong>Reference examples</strong>: Use the provided samples for guidance on extending functionality.</li>
+</ol>
+<doc-anchor-target id="troubleshooting">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#troubleshooting">#</doc-anchor-trigger>
+        <span>Troubleshooting</span>
+    </h2>
+</doc-anchor-target>
+<p>Use the UI Toolkit Debugger (<code v-pre>Window &gt; UI Toolkit &gt; Debugger</code>) to inspect the visual elements tree and its styles and classes.</p>
+<p>![[Pasted image 20241127184237.png]]</p>
+<p>Since UI Toolkit uses a form of CSS, it also inherits all the downsides of the cascading aspect - always check for unintended style propagation affecting your UI.</p>
+<p>Use the included <em>Debug</em> editor windows to view the raw state of the system. These tools help identify whether issues originate from the data layer or the view layer.</p>
+<p>![[Pasted image 20241127184644.png]]</p>
+<doc-anchor-target id="need-help">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#need-help">#</doc-anchor-trigger>
+        <span>Need Help?</span>
+    </h3>
+</doc-anchor-target>
+<p>Join our <a href="https://www.youtube.com/redirect?event=channel_header&amp;redir_token=QUFFLUhqbDhfRHhLQ0pEUk9tcGd0VkR2MUtad1JmQ3pjZ3xBQ3Jtc0tuYm1DQ0xHZDVpQ3pGbzZUdkNSU0UycThGeU1zU2hPUnlOSkdlN3NwcnFrazJaRUo1VTkyWGI4NzZnd2dJdnZES0lpYm1qMmMwWFg3c2JvSnhjLVVnTXVEXy1kdHJxVjFxdkd2VE1HYy1XckYwbXZJQQ&amp;q=https%3A%2F%2Fdiscord.gg%2FZXgJZM29fs"><strong>Discord server</strong></a> to ask questions and get support from the community.</p>
+<doc-anchor-target id="roadmap">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#roadmap">#</doc-anchor-trigger>
+        <span>Roadmap</span>
+    </h2>
+</doc-anchor-target>
+<ul>
+<li><strong>Persistence</strong>: Save/load functionality using JSON and/or CSV.</li>
+<li><strong>Designer Tools</strong>: Support for Scriptable Objects and custom editors.</li>
+<li>An <strong>advanced version</strong> (paid) is coming &quot;soon&quot;. It will include
+<ul>
+<li><strong>Grid inventory</strong> with varying item sizes.</li>
+<li><strong>Puzzle inventory</strong> with varying item shapes that can also be rotated.</li>
+<li>Demos for grid-based inventories inspired by some popular games like <code v-pre>Diablo</code>, <code v-pre>Backpack Battles</code>, <code v-pre>DayZ</code></li>
+</ul>
+</li>
+</ul>
+<p><code v-pre>Diablo / Path of Exile</code>
+![[Pasted image 20241127190120.png]]</p>
+<p><code v-pre>Backpack Battles</code>
+![[Pasted image 20241127190304.png]]</p>
+<p><code v-pre>DayZ</code>
+![[Pasted image 20250214194839.png]]</p>
+
+                                
+                                <!-- Required only on API pages -->
+                                <doc-toolbar-member-filter-no-results></doc-toolbar-member-filter-no-results>
+                            </div>
+                            <footer class="clear-both">
+                            
+                                <nav class="flex mt-14">
+                                    <div class="w-1/2">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../docs/core-concepts/">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                                            <span>
+                                                <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
+                                                <span class="block mt-1">Core Concepts</span>
+                                            </span>
+                                        </a>
+                                    </div>
+                            
+                                    <div class="w-1/2">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../live-demos/">
+                                            <span>
+                                                <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
+                                                <span class="block mt-1">Live Demos</span>
+                                            </span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                                        </a>
+                                    </div>
+                                </nav>
+                            </footer>
+                        </main>
+                
+                        <div class="border-t dark:border-dark-650 pt-6 mb-8">
+                            <footer class="flex flex-wrap items-center justify-between">
+                                <div>
+                                    <ul class="flex flex-wrap items-center text-sm">
+                                    </ul>
+                                </div>
+                                <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>© 2025 GameDevSimplified. All rights reserved.</p></div>
+                            </footer>
+                        </div>
+                    </div>
+                
+                    <!-- Rendered if sidebar right is enabled -->
+                    <!-- Sidebar right skeleton-->
+                    <div v-cloak class="fixed top-0 bottom-0 right-0 translate-x-full bg-white border-gray-200 lg:sticky lg:border-l lg:shrink-0 lg:pt-6 lg:transform-none sm:w-1/2 lg:w-64 lg:z-0 md:w-104 sidebar-right skeleton dark:bg-dark-850 dark:border-dark-650">
+                        <div class="pl-5">
+                            <div class="w-32 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+                            <div class="w-48 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+                            <div class="w-40 h-3 mb-4 bg-gray-200 dark:bg-dark-600 rounded-full loading"></div>
+                        </div>
+                    </div>
+                
+                    <!-- User should be able to hide sidebar right -->
+                    <doc-sidebar-right v-cloak></doc-sidebar-right>
+                </div>
+
+            </div>
+        </div>
+    
+        <doc-search-mobile></doc-search-mobile>
+        <doc-back-to-top></doc-back-to-top>
+    </div>
+
+
+    <div id="docs-overlay-target"></div>
+
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Inventory Framework Documentation", level: 2, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+</body>
+</html>
