@@ -1,0 +1,29 @@
+I'll pin this comment for now but will move it to a dedicated read-only 'how-to' channel
+
+The demos are both a showcase of what is possible and a good starting point for a custom inventory system. 
+They are meant to be copy/pasted into projects and altered to need.
+You can start with the `Minimal` version and add the pieces you need or with `Basic` (I might rename this to `Minecraft` if the Asset Store allows it) and keep only what you need while adding your own stuff
+
+Now, how can you tell what you need? 
+First, there's the `Store` which is the one place where data is stored and handled. The `Store` has to listen to at least 2 events - `pick item` and `place item`. The handlers for these events will send the data to `Core` functions to process. Check either demo for an example of this. The case of moving an item between inventories (through a `ctr+click` for example) in the `pick` event (see `Basic`). 
+The `Store` also needs to have a reference to the currently dragged item. It will be an `Observable` of type `Item`. Why observable item? So that parts of the system can react to the change without the need to explicitly subscribe to an `Dragged Item Changed` event.
+The `Store` is a singleton and there's nothing wrong with it - everything in it is read-only.
+
+Then there's the type system and the items. The `Minimal` demo doesn't enhance on the type system in any way, and creates its items directly in the `Store` instance. The `Basic` however, declares a few extra base types and adds `Rarity` to item data type (see `Basic/Inventory/Types.cs`). All items have `quantity` and `stackable` fields - this felt like the one truly common aspect among all items regardless of inventory type, another one being the icon path, which is also present in base item data. 
+Why is the item split into `Base` and `Data`? It's a common pattern (https://en.wikipedia.org/wiki/Flyweight_pattern) that is both optimal and makes use of good-old composition over inheritance. For example an instance of an Apple doesn't need to carry around all the data that will never change, like its icon.
+
+Thirdly there's the UI - you will need a `UI Document` attached to a `GameObject` in your scene, a `Panel Settings` asset, a `Root UXML` asset and a script that attaches the actual root of your inventory to the document. You can start by using the included renderers for items, slots and "bags" (inventories) and create custom views when you need them. For example, in `Basic` demo we define a custom `ItemView` and add a a background element to reflect the item's rarity. 
+You are expected to create custom views for your screens and windows that will be composed of built-in, custom views and other UI elements (like buttons and text). See `Basic/View/ChestWindow.cs` for an example. 
+Typically, the UI will only describe its structure and styling, and will have minimal behavior (like reacting to button clicks). All core behavior is abstracted away in extension methods (see next section for more on this).
+All demos come with a `Theme` file (see `Resources/Basic/BasicTheme.tss`). Technically you don't need one and could use the `DefaultTheme`, but the default theme is pretty ugly and you will end up customizing it anyway.
+You will notice that almost all of the styling is crammed in one big USS file (see `BasicStyling.uss`). Although not very elegant, I found it easier to search for selectors in one big file rather than multiple smaller ones. If the styling is completely unrelated to anything else, you can try putting it into a separate file and import it in the theme (see `BasicTooltip.uss`). Be your own judge in this regard, these are merely suggestions and personal preferences.
+If something doesn't look right it is probably because some style is missing or is not defined correctly. To help with debugging, each demo comes with a window that shows the raw state of the `Store`. To open it go to `Tools > Basic > Debug`. You are expected to alter this window (through code, of course) and add stuff you want to observe (see `Basic/Editor/Debug.cs`).
+
+Lastly but equally important, you will need to attach some behaviors to the root layer of your document (see `Basic/Views/RootLayer.cs`). These behaviors are responsible for stuff happening on the screen, like showing an item being dragged or a tooltip appearing on hover. To give an example, `WithRestrictedSlotBehavior`(see `Core/Behaviors/Behaviors.cs`) is a behavior that *observes* the **dragged item** and reacts to *mouse over/out* events on all `SlotViews`.It then checks if the slot Accepts the item (this is defined on slot creation time) and marks the slot view as being in legal or illegal state by attaching a hardcoded class to the visual element ("legal-action"). This will show a red or green overlay on top of the slot icon (that is, if the styles are defined).
+In order to be able to pick (and place) items and see them move you will need to add a pick and a ghost item behavior. Currently there are two pick behaviors and one ghost behavior defined:
+`WithClickToPickBehavior` will pick an item on mouse down
+`WithDragToPickBehavior` will pick an item when it was dragged a minimum amount of pixels (`32` by default)
+`WithGhostItemBehavior` watches mouse for movement and renders a view of the dragged item.
+
+Why go to all these lengths with abstractions? It is my belief that the only way to build truly scalable systems is composing them from tiny composable blocks, like Legos. This level of decoupling allows for easier debugging when stuff breaks. It also covers some cases at low to no development cost where traditional approaches might struggle. For example, let's say, at first you only need to be able to pick up items, but then a requirement comes that you also need to be able to select items - you just add a new behavior (create one, if no such behavior exist by that time).
+

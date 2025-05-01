@@ -1,0 +1,12 @@
+input: ./src
+output: .retype
+url: # Add your website address here
+branding:
+  title: GameDevSimplified
+  logo: /static/logo.jpg
+links:
+  - text: Getting Started
+    link: https://retype.com/guides/getting-started/
+  - text:
+footer:
+  copyright: "&copy; {{ year }} GameDevSimplified. All rights reserved."

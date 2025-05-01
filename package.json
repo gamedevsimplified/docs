@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "start": "retype start"
+  },
+  "dependencies": {
+    "retypeapp": "^3.7.0"
+  }
+}
