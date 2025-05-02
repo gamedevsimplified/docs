@@ -1,3 +1,1 @@
-### Basic
-
-[!embed](https://dcroitoru.github.io/gamedevsimplified/live-demos/backpack-game-web/index.html)
+[!embed](https://gamedevsimplified.github.io/live-demos/demos/basic/index.html)
