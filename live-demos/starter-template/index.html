@@ -9,24 +9,21 @@
     <meta name="generator" content="Retype 3.7.0">
 
     <!-- Primary Meta Tags -->
-    <title>Core Concepts</title>
-    <meta name="title" content="Core Concepts">
-    <meta name="description" content="The framework is built around several key concepts that define its structure and behavior.">
+    <title>Starter Template</title>
+    <meta name="title" content="Starter Template">
 
     <!-- Canonical -->
-    <link rel="canonical" href="/docs/core-concepts/">
+    <link rel="canonical" href="/live-demos/starter-template/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="/docs/core-concepts/">
-    <meta property="og:title" content="Core Concepts">
-    <meta property="og:description" content="The framework is built around several key concepts that define its structure and behavior.">
+    <meta property="og:url" content="/live-demos/starter-template/">
+    <meta property="og:title" content="Starter Template">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="/docs/core-concepts/">
-    <meta property="twitter:title" content="Core Concepts">
-    <meta property="twitter:description" content="The framework is built around several key concepts that define its structure and behavior.">
+    <meta property="twitter:url" content="/live-demos/starter-template/">
+    <meta property="twitter:title" content="Starter Template">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
@@ -35,7 +32,6 @@
     <script data-cfasync="false" src="../../resources/js/config.js?v=3.7.0.799590696767" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.7.0" data-turbo-eval="false" defer></script>
     <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.7.0.799590696767" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.7.0.799590696767" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -221,134 +217,19 @@
                                 <!-- Rendered if sidebar right is enabled -->
                                 <div id="docs-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
-<doc-anchor-target id="core-concepts" class="break-words">
+<doc-anchor-target id="starter-template" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#core-concepts">#</doc-anchor-trigger>
-        <span>Core Concepts</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#starter-template">#</doc-anchor-trigger>
+        <span>Starter Template</span>
     </h1>
 </doc-anchor-target>
-<p>The framework is built around several key concepts that define its structure and behavior. Understanding these will help you make the most of its features.</p>
-<doc-anchor-target id="item">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#item">#</doc-anchor-trigger>
-        <span>Item</span>
-    </h3>
-</doc-anchor-target>
-<p>An <strong>Item</strong> is a data type that represents an individual object in an inventory. It is highly flexible and comprises two main components:</p>
-<ul>
-<li><strong>Base</strong>: Contains fixed properties like ID, name, and icon path.</li>
-<li><strong>Data</strong>: Holds dynamic properties such as quantity or rarity.</li>
-</ul>
-<div class="codeblock-wrapper"><doc-codeblock>
-<div class="codeblock-title">Item.cs</div>
-<pre class="language-csharp"><code v-pre class="language-csharp">public record Item(int Id, ItemBase ItemBase, ItemData ItemData)
-public record ItemBase(string Id, string Name, string IconPath, bool Stackable, Size Size);
-public record ItemData(int Quant = 1);</code></pre>
-</doc-codeblock></div>
-<p>This architecture is heavily inspired from RPGs like <a href="https://diablo2.io/base/">Diablo</a> and <a href="https://www.poewiki.net/wiki/Body_armour">Path of Exile</a> but the separation ensures adaptability to fit various gameplay scenarios.</p>
-<doc-anchor-target id="slot">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#slot">#</doc-anchor-trigger>
-        <span>Slot</span>
-    </h3>
-</doc-anchor-target>
-<p>A <strong>Slot</strong> is a container that can either hold an <strong>Item</strong> or remain empty. Slots can enforce <strong>restrictions</strong>, such as allowing only specific types of items, by providing a function (<code v-pre>Accepts</code>) that operates on <code v-pre>Item</code> type.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-csharp"><code v-pre class="language-csharp">// Inventory.cs
-public delegate bool FilterFn(Item item);
-public record Slot(Item Item) { 
-	public FilterFn Accepts = (_) =&gt; true; 
-};</code></pre>
-</doc-codeblock></div>
-<p>The base <code v-pre>Slot</code> type is extended into specialized slot types:</p>
-<ul>
-<li><code v-pre>ListSlot</code>: Index-based storage.</li>
-<li><code v-pre>SetSlot</code>: Named slots for equipment/wearable items.</li>
-<li><code v-pre>GridSlot</code> (<em>not available in Lite</em>): Grid-based position storage.</li>
-</ul>
-<doc-anchor-target id="bag">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#bag">#</doc-anchor-trigger>
-        <span>Bag</span>
-    </h3>
-</doc-anchor-target>
-<p>The <strong>Bag</strong> represents an inventory. It manages a collection of <strong>Slots</strong>. Each inventory type comes with its own behavior and can enforce restrictions on accepted items.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-csharp"><code v-pre class="language-csharp">// Types.cs
-public abstract record Bag(string Id) {
-	public static NoBag NoBag = new();
-	public FilterFn Accepts = Filters.Everything;
-}</code></pre>
-</doc-codeblock></div>
-<p>The base <code v-pre>Bag</code> type is extended into specialized types:</p>
-<ul>
-<li><code v-pre>ListBag</code>: Contains a list of <code v-pre>ListSlots</code></li>
-<li><code v-pre>SetBag</code>: Contains a list of <code v-pre>SetSlots</code></li>
-<li><code v-pre>GridBag</code> (<em>PRO</em>): Contains a 2D array of <code v-pre>GridSlots</code> as well as a list of <code v-pre>GridItems</code></li>
-</ul>
-<doc-anchor-target id="event-bus-and-events">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#event-bus-and-events">#</doc-anchor-trigger>
-        <span>Event Bus and Events</span>
-    </h3>
-</doc-anchor-target>
-<p>The framework uses an <a href="https://dzone.com/articles/design-patterns-event-bus"><strong>Event Bus</strong></a> to decouple its components. <strong>Events</strong> are data containers describing actions, such as picking up an item. For example, a <code v-pre>PickItem</code> event includes the item itself, the source inventory and slot.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-csharp"><code v-pre class="language-csharp">// Events.cs
-public record PickItemEvent(Bag Bag, Item Item, Slot Slot);</code></pre>
-</doc-codeblock></div>
-<p>An event does not perform any actions itself, that falls under the responsibility of the <strong>Store</strong>.</p>
-<doc-anchor-target id="store">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#store">#</doc-anchor-trigger>
-        <span>Store</span>
-    </h3>
-</doc-anchor-target>
-<p>Inspired by web technologies like <a href="https://redux.js.org/faq/general#when-should-i-use-redux"><strong>Redux</strong></a>, the <strong>Store</strong> serves as the central hub for managing system state. It subscribes to events on event channels and performs necessary state updates. All changes to the system state flow through the <strong>Store</strong>, ensuring consistency and predictability.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<div class="codeblock-title">Store.cs</div>
-<pre class="language-csharp"><code v-pre class="language-csharp">public Store() {
-	Bus.Subscribe&lt;PickItemEvent&gt;(e =&gt; OnPickItem(e as PickItemEvent));
-	// ...
-}
-
-void OnPickItem(PickItemEvent e) {
-	LogEvent(e);
-	// ...
-}</code></pre>
-</doc-codeblock></div>
-<doc-anchor-target id="item-bases">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#item-bases">#</doc-anchor-trigger>
-        <span>Item Bases</span>
-    </h3>
-</doc-anchor-target>
-<p>This is your repository of item bases and all the types that fully describe and categorize them.
-For example an <em>Apple</em> is defined as a <strong>stackable</strong>, <strong>consumable</strong> <strong>basic item</strong>, while a <em>Dagger</em> is a <strong>1-handed</strong> <strong>weapon</strong>, with <em>Attack Damage</em> and <em>Attack Speed</em></p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<div class="codeblock-title">Bases.cs</div>
-<pre class="language-csharp"><code v-pre class="language-csharp">public static ItemBase Apple = new(&quot;Apple&quot;, &quot;Apple&quot;, &quot;Shared/Images/items/apple&quot;, true, ItemClass.Consumable);
-public static WeaponItemBase ShortSword = new(&quot;ShortSword&quot;, &quot;Short Sword&quot;, &quot;Shared/Images/items/sword-blue&quot;, ItemClass.Weapon1H, 80, 1.5f);</code></pre>
-</doc-codeblock></div>
-<doc-anchor-target id="behaviors">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#behaviors">#</doc-anchor-trigger>
-        <span>Behaviors</span>
-    </h3>
-</doc-anchor-target>
-<p>The UI is decoupled from any interactivity logic. All logic is abstracted away in behaviors, like showing a tooltip on hovering an item, dragging an item to pick it up or showing a &quot;ghost&quot; version of the dragged item.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-csharp"><code v-pre class="language-csharp">// Behaviors.cs
-public static VisualElement WithDragToPickBehavior(this VisualElement element, Observable&lt;Item&gt; draggedItem, EventBus bus) {/*...*/}
-public static VisualElement WithItemTooltipBehavior&lt;T&gt;(this VisualElement root) where T : Component&lt;Item&gt; {/*...*/}
-
-// RootLayer.cs
-this.Add(&quot;root-layer&quot;)
-	.WithDragToPickBehavior(Store.Instance.DraggedItem, Store.Bus)
-	.WithGhostItemBehavior&lt;BasicItemView&gt;(Store.Instance.DraggedItem)
-	.WithItemTooltipBehavior&lt;Tooltip&gt;();
-</code></pre>
-</doc-codeblock></div>
+<p>
+<figure>
+    <div class="relative w-full mb-6 overflow-hidden pt-9/16">
+        <iframe class="w-full h-full border-0 absolute inset-0" src="https://gamedevsimplified.github.io/live-demos/demos/starter/index.html" allowfullscreen></iframe>
+    </div>
+</figure>
+</p>
 
                                 
                                 <!-- Required only on API pages -->
@@ -358,20 +239,20 @@ this.Add(&quot;root-layer&quot;)
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../docs/getting-started/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../live-demos/basic/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">Getting Started</span>
+                                                <span class="block mt-1">Basic</span>
                                             </span>
                                         </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../docs/technical-details/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../live-demos/unnamed-game/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">Technical Details</span>
+                                                <span class="block mt-1">Unnamed Game</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -415,6 +296,6 @@ this.Add(&quot;root-layer&quot;)
 
     <div id="docs-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Core Concepts", level: 2, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Starter Template", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
 </body>
 </html>
