@@ -103,7 +103,7 @@ public CharacterSheet(SetBag bag) {
 ```
 
 ### 5. Update Character Sheet Window
-```cs #6,13,21,26-29 CharacterSheetWindow.cs 
+```cs #6,13,21,26-30 CharacterSheetWindow.cs 
 public CharacterSheetWindow(CharacterSheet character) {
 
     var Defense = Label("character-line", "Defense");
@@ -133,6 +133,6 @@ string WeightText(int value) => value switch {  /*✚*/
     >= 40 => "Heavy".Red(),                     /*✚*/
     >= 25 => "Medium".Yellow(),                 /*✚*/
     _ => "Light".Blue()                         /*✚*/
-};
+};                                              /*✚*/
 ```
 ![The **Total Weight** should show up in the **Character Sheet**](/static/images/tutorials/add-weight-char-sheet.jpg)
