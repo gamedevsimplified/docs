@@ -1,3 +1,8 @@
+---
+icon: play
+order: 100
+---
+
 [-![Basic](/static/images/demos/basic.png)](basic)
 
 [-![Starter Template](/static/images/demos/starter.png)](starter-template)

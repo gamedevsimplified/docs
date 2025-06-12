@@ -1,7 +1,8 @@
 ---
 order: "400"
 ---
-- PRO version (includes grid inventory, 3 more demos)
+- **PRO** version (in final stages of development)
 - Various optimizations (pool events)
-- Add item sorting to Core
-- Add `Scriptable Objects` support
+- Add item sorting to **Core**
+- Add **Scriptable Objects** support
+- Improve Editor support
