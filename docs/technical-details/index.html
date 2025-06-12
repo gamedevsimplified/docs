@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.7.0.799662063768">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.10.0.803061345779">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 3.7.0">
+    <meta name="generator" content="Retype 3.10.0">
 
     <!-- Primary Meta Tags -->
-    <title>Technical Details</title>
-    <meta name="title" content="Technical Details">
+    <title>Technical</title>
+    <meta name="title" content="Technical">
     <meta name="description" content="The framework takes a functional programming approach, emphasizing simplicity and separation of concerns. It uses the a common \"good\" practice of ">
 
     <!-- Canonical -->
@@ -20,43 +20,43 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://gamedevsimplified.github.io/docs/docs/technical-details/">
-    <meta property="og:title" content="Technical Details">
+    <meta property="og:title" content="Technical">
     <meta property="og:description" content="The framework takes a functional programming approach, emphasizing simplicity and separation of concerns. It uses the a common \"good\" practice of ">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://gamedevsimplified.github.io/docs/docs/technical-details/">
-    <meta property="twitter:title" content="Technical Details">
+    <meta property="twitter:title" content="Technical">
     <meta property="twitter:description" content="The framework takes a functional programming approach, emphasizing simplicity and separation of concerns. It uses the a common \"good\" practice of ">
 
-    <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
+    <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=3.7.0.799662063768" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.10.0.803061345779" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.7.0.799662063768" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=3.7.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.7.0.799662063768" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.7.0.799662063768" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.10.0.803061345779" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=3.10.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.10.0.803061345779" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.10.0.803061345779" defer></script>
 </head>
 <body>
-    <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
+    <div id="retype-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
         <div class="absolute bottom-0 left-0 bg-gray-100 dark:bg-dark-800" style="top: 5rem; right: 50%"></div>
     
-        <header id="docs-site-header" class="sticky top-0 z-30 flex w-full h-16 bg-white border-b border-gray-200 md:h-20 dark:bg-dark-850 dark:border-dark-650">
+        <header id="retype-header" class="sticky top-0 z-30 flex w-full h-16 bg-white border-b border-gray-200 md:h-20 dark:bg-dark-850 dark:border-dark-650">
             <div class="container relative flex items-center justify-between pr-6 grow md:justify-start">
                 <!-- Mobile menu button skeleton -->
-                <button v-cloak class="skeleton docs-mobile-menu-button flex items-center justify-center shrink-0 overflow-hidden dark:text-white focus:outline-none rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
-                <div v-cloak id="docs-sidebar-toggle"></div>
+                <button v-cloak class="skeleton retype-mobile-menu-button flex items-center justify-center shrink-0 overflow-hidden dark:text-white focus:outline-none rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
+                <div v-cloak id="retype-sidebar-left-toggle-button"></div>
         
                 <!-- Logo -->
                 <div class="flex items-center justify-between h-full py-2 md:w-75">
                     <div class="flex items-center px-2 md:px-6">
-                        <a id="docs-site-logo" href="../../" class="flex items-center leading-snug text-xl">
+                        <a id="retype-branding-logo" href="../../" class="flex items-center leading-snug text-xl">
                             <span class="w-10 mr-2 grow-0 shrink-0 overflow-hidden">
                                 <img class="max-h-10 dark:hidden md:inline-block" src="../../static/logo.jpg">
                                 <img class="max-h-10 hidden dark:inline-block" src="../../static/logo.jpg">
                             </span>
-                            <span class="dark:text-white font-semibold line-clamp-1 md:line-clamp-2">GameDevSimplified</span>
+                            <span class="dark:text-white font-bold line-clamp-1 md:line-clamp-2">GameDevSimplified</span>
                         </a>
                     </div>
         
@@ -65,7 +65,7 @@
         
                 <div class="flex justify-between md:grow">
                     <!-- Top Nav -->
-                    <nav class="hidden md:flex">
+                    <nav id="retype-header-nav" class="hidden md:flex">
                         <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
                             <li class="mr-6">
                                 <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://discord.com/invite/MFgMX6Fn4m" target="_blank">
@@ -127,7 +127,7 @@
                     </div>
         
                     <div v-cloak class="flex justify-end grow">
-                        <div id="docs-mobile-search-button"></div>
+                        <div id="retype-mobile-search-button"></div>
                         <doc-search-desktop></doc-search-desktop>
         
                         <doc-theme-switch class="lg:ml-2"></doc-theme-switch>
@@ -137,9 +137,9 @@
             </div>
         </header>
     
-        <div class="container relative flex bg-white">
+        <div id="retype-container" class="container relative flex bg-white">
             <!-- Sidebar Skeleton -->
-            <div v-cloak class="fixed flex flex-col shrink-0 duration-300 ease-in-out bg-gray-100 border-gray-200 sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton dark:bg-dark-800 dark:border-dark-650">
+            <div v-cloak class="fixed flex flex-col shrink-0 duration-300 ease-in-out bg-white border-gray-200 sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton dark:bg-dark-800 dark:border-dark-650">
             
                 <div class="flex items-center h-16 px-6">
                     <input class="w-full h-8 px-3 py-2 transition-colors duration-200 ease-linear bg-white border border-gray-200 rounded shadow-none text-sm focus:outline-none focus:border-gray-600 dark:bg-dark-600 dark:border-dark-600" type="text" placeholder="Filter">
@@ -216,28 +216,27 @@
             <div class="grow min-w-0 dark:bg-dark-850">
                 <!-- Render "toolbar" template here on api pages --><!-- Render page content -->
                 <div class="flex">
-                    <div class="min-w-0 p-4 grow md:px-16">
+                    <div id="retype-main" class="min-w-0 p-4 grow md:px-16">
                         <main class="relative pb-12 lg:pt-2">
-                            <div class="docs-markdown" id="docs-content">
+                            <div class="retype-markdown" id="retype-content">
                                 <!-- Rendered if sidebar right is enabled -->
-                                <div id="docs-sidebar-right-toggle"></div>
+                                <div id="retype-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
-<doc-anchor-target id="technical-details" class="break-words">
+<doc-anchor-target id="technical" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#technical-details">#</doc-anchor-trigger>
-        <span>Technical Details</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#technical">#</doc-anchor-trigger>
+        <span>Technical</span>
     </h1>
 </doc-anchor-target>
-<doc-anchor-target id="technical-details">
+<doc-anchor-target id="functional-programming">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#technical-details">#</doc-anchor-trigger>
-        <span>Technical Details</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#functional-programming">#</doc-anchor-trigger>
+        <span>Functional programming</span>
     </h2>
 </doc-anchor-target>
 <p>The framework takes a <strong>functional programming approach</strong>, emphasizing simplicity and separation of concerns. It uses the a common &quot;good&quot; practice of <em>Composition</em> over <em>Inheritance</em> and not so common convention of <em>Rules</em> over <em>Conditions</em> (pattern matching).</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-csharp"><code v-pre class="language-csharp">// InventoryExtensions.cs
-public static (bool, Item) PlaceItem(this Bag bag, Item item, Slot slot){
+<pre translate="no" class="language-csharp"><code v-pre class="language-csharp">public static Result PlaceItem(this Bag bag, Item item, Slot slot){
 	return (bag, slot) switch {
 		(GridBag b, GridSlot s) =&gt; PlaceItem(b, item, s),
 		(SetBag b, SetSlot s) =&gt; PlaceItem(b, item, s),
@@ -246,31 +245,60 @@ public static (bool, Item) PlaceItem(this Bag bag, Item item, Slot slot){
 	};
 }</code></pre>
 </doc-codeblock></div>
+<doc-anchor-target id="records">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#records">#</doc-anchor-trigger>
+        <span>Records</span>
+    </h2>
+</doc-anchor-target>
 <p><a href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/record"><strong>C# Records</strong></a> are used to model data types. They offer concise syntax, value-like behavior and are immutable by default. The <a href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/record#immutability">immutability</a> aspect is particularly useful for <strong>View</strong> Components, as it simplifies determining whether a re-render is necessary.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-csharp"><code v-pre class="language-csharp">// Item.cs
-public record Item(int Id, ItemBase ItemBase, ItemData ItemData)</code></pre>
+<pre translate="no" class="language-csharp"><code v-pre class="language-csharp">public record Item</code></pre>
 </doc-codeblock></div>
+<doc-anchor-target id="extension-methods">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#extension-methods">#</doc-anchor-trigger>
+        <span>Extension methods</span>
+    </h2>
+</doc-anchor-target>
 <p>A type&#x27;s behavior is implemented via <strong>extension methods</strong> to keep the data structures clean and focused. This prevents behavior inheritance, which is a big pain-point in classic OOP design.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-csharp"><code v-pre class="language-csharp">// InventoryExtensions.cs
-public static Slot Clear(this Slot slot) =&gt; slot with { Item = Item.NoItem };</code></pre>
+<pre translate="no" class="language-csharp"><code v-pre class="language-csharp">public static Slot Clear(this Slot slot) =&gt; slot with { Item = Item.NoItem };</code></pre>
 </doc-codeblock></div>
-<p>To ensure proper input validation when creating new instances, each data type comes with one or more <strong>factory</strong> functions. For example, an <strong>Item</strong> can be created by providing both an <code v-pre>ItemBase</code> and an <code v-pre>ItemData</code> or just an <code v-pre>ItemBase</code>. In either case, the item <code v-pre>Id</code> will be automatically generated.</p>
+<doc-anchor-target id="factories">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#factories">#</doc-anchor-trigger>
+        <span>Factories</span>
+    </h2>
+</doc-anchor-target>
+<p>To ensure proper input validation when creating new instances, each data type comes with one or more <strong>factory</strong> functions. For example, in <code v-pre>Basic</code> demo, an <strong>Item</strong> can be created by providing just an <code v-pre>ItemBase</code>, or <code v-pre>ItemBase</code> and <code v-pre>Quant</code>, or <code v-pre>ItemBase</code>, <code v-pre>Quant</code> and <code v-pre>Rarity</code></p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-csharp"><code v-pre class="language-csharp">// Item.cs
-public static class ItemFactory {
-	public static Item Create(ItemBase itemBase, ItemData itemData) =&gt; new(Id(), itemBase, itemData);
-
-	public static Item Create(ItemBase itemBase) =&gt; new(Id(), itemBase, NoItemData);
-	//...
+<pre translate="no" class="language-csharp"><code v-pre class="language-csharp">public static class ItemFactory {
+	public static BasicItem Create(this ItemBase itemBase, Rarity rarity, int Quant = 0) =&gt; itemBase switch {
+		ArmorBase b =&gt; new ArmorItem(b) { Rarity = rarity },
+		WeaponBase b =&gt; new WeaponItem(b) { Rarity = rarity },
+		_ =&gt; new BasicItem() { Base = itemBase, Rarity = rarity, Quant = Quant }
+	};
+	public static BasicItem Create(this ItemBase itemBase, int Quant) =&gt; Create(itemBase, Rarity.NoRarity, Quant);
+	public static BasicItem Create(this ItemBase itemBase) =&gt; Create(itemBase, Rarity.NoRarity);
 }</code></pre>
 </doc-codeblock></div>
-<p>To represent the absence of an object the <a href="https://en.wikipedia.org/wiki/Null_object_pattern"><strong>null object pattern</strong></a> is employed in favor of the classic <em>null</em> reference. This means that most types have an associated void type: <code v-pre>Item =&gt; NoItem</code> which acts like the <a href="https://en.wikipedia.org/wiki/Identity_element#:%7E:text=In%20mathematics%2C%20an%20identity%20element,such%20as%20groups%20and%20rings.">identity element</a> from algebra. One of the main advantages of this approach is that an operation can be performed on a an item or a collection of items without the need of a null check beforehand. An operation like this will have no effect on the item, if it is a <code v-pre>NoItem</code>.</p>
-<doc-anchor-target id="ui-toolkit-integration">
+<doc-anchor-target id="null-object">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#ui-toolkit-integration">#</doc-anchor-trigger>
-        <span>UI Toolkit Integration</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#null-object">#</doc-anchor-trigger>
+        <span>Null object</span>
+    </h2>
+</doc-anchor-target>
+<p>To represent the absence of an object the <a href="https://en.wikipedia.org/wiki/Null_object_pattern"><strong>null object pattern</strong></a> is employed in favor of the classic <em>null</em> reference. This means that most types have an associated void type: <code v-pre>Item =&gt; NoItem</code> which acts like the <a href="https://en.wikipedia.org/wiki/Identity_element#:%7E:text=In%20mathematics%2C%20an%20identity%20element,such%20as%20groups%20and%20rings.">identity element</a> from algebra. One of the main advantages of this approach is that an operation can be performed on a an item or a collection of items without the need of a null check beforehand. An operation like this will have no effect on the item, if it is a <code v-pre>NoItem</code>.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-csharp"><code v-pre class="language-csharp">public record Item {
+	public static NoItem NoItem = new();
+}</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="ui-toolkit">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#ui-toolkit">#</doc-anchor-trigger>
+        <span>UI Toolkit</span>
     </h2>
 </doc-anchor-target>
 <p>The framework leverages <strong>UI Toolkit</strong> for rendering inventory views. It provides a declarative way to define elements, their data, and their styles using C# and USS, while completely avoiding <strong>UXML</strong>. The reason for bypassing UXML is that data binding, referencing elements and working with the  UXML asset, all come with levels of verbosity and complexity that drastically slow down productivity. This means, however, that the included visual components (inventories, windows, slots) cannot be viewed in Unity&#x27;s <strong>UI Builder</strong>. You can still use the UI Builder to design own custom components if you prefer so.
@@ -279,42 +307,40 @@ Since UI Toolkit is heavily based on web technologies, the framework proposes we
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model"><strong>DOM</strong></a>: Utility functions for managing elements.</li>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div"><strong>DIV</strong></a>: A shorthand alias for <code v-pre>VisualElement</code>.</li>
 </ul>
-<doc-anchor-target id="how-it-works">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#how-it-works">#</doc-anchor-trigger>
-        <span>How it works</span>
-    </h2>
-</doc-anchor-target>
-<p>From a birds eye view, the system consists of a <code v-pre>data store</code>, an <code v-pre>event bus</code> and <code v-pre>UI</code>
-When the user interacts with the UI, let&#x27;s say <em>picks an item from a slot</em>, an event is put on the event bus.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-csharp"><code v-pre class="language-csharp">// Behaviors.cs
+<!-- ## How it works
+
+From a birds eye view, the system consists of a `data store`, an `event bus` and `UI` 
+When the user interacts with the UI, let's say *picks an item from a slot*, an event is put on the event bus.
+```cs
+// Behaviors.cs
 CustomEvent evt = new PickItemEvent(t.Bag, t.Data.Item, t.Data, e.modifiers)                    
 
-bus.Publish(evt);</code></pre>
-</doc-codeblock></div>
-<p>The <code v-pre>Store</code>, having subscribed to the event, sends its data to a handler function which will update the <code v-pre>bag</code>.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-csharp"><code v-pre class="language-csharp">// Store.cs
-Bus.Subscribe&lt;PickItemEvent&gt;(e =&gt; OnPickItem(e as PickItemEvent));
+bus.Publish(evt);
+```
+
+The `Store`, having subscribed to the event, sends its data to a handler function which will update the `bag`.
+```cs
+// Store.cs
+Bus.Subscribe<PickItemEvent>(e => OnPickItem(e as PickItemEvent));
 void OnPickItem(PickItemEvent e) {
 	//...
 	bag.Notify();	
-}</code></pre>
-</doc-codeblock></div>
-<p>Then, any view that is observing the bag will update itself.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-csharp"><code v-pre class="language-csharp">// ListBagView.cs
-this.Observe(bag.Data, (slots) =&gt; {/*...*/});</code></pre>
-</doc-codeblock></div>
+}
+```
+
+Then, any view that is observing the bag will update itself.
+```cs
+// ListBagView.cs
+this.Observe(bag.Data, (slots) => {/*...*/});
+``` -->
 
                                 
                                 <!-- Required only on API pages -->
                                 <doc-toolbar-member-filter-no-results></doc-toolbar-member-filter-no-results>
                             </div>
-                            <footer class="clear-both">
+                            <footer id="retype-content-footer" class="clear-both">
                             
-                                <nav class="flex mt-14">
+                                <nav id="retype-nextprev" class="print:hidden flex mt-14">
                                     <div class="w-1/2">
                                         <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../docs/core-concepts/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
@@ -326,10 +352,10 @@ this.Observe(bag.Data, (slots) =&gt; {/*...*/});</code></pre>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../docs/how-to-use/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../docs/core-api/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">How to use</span>
+                                                <span class="block mt-1">Core API 🚧</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -338,13 +364,13 @@ this.Observe(bag.Data, (slots) =&gt; {/*...*/});</code></pre>
                             </footer>
                         </main>
                 
-                        <div class="border-t dark:border-dark-650 pt-6 mb-8">
-                            <footer class="flex flex-wrap items-center justify-between">
-                                <div>
+                        <div id="retype-page-footer" class="print:border-none border-t dark:border-dark-650 pt-6 mb-8">
+                            <footer class="flex flex-wrap items-center justify-between print:justify-center">
+                                <div id="retype-footer-links" class="print:hidden">
                                     <ul class="flex flex-wrap items-center text-sm">
                                     </ul>
                                 </div>
-                                <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>© 2025 GameDevSimplified. All rights reserved.</p></div>
+                                <div id="retype-copyright" class="print:justify-center docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>© 2025 GameDevSimplified. All rights reserved.</p></div>
                             </footer>
                         </div>
                     </div>
@@ -371,8 +397,8 @@ this.Observe(bag.Data, (slots) =&gt; {/*...*/});</code></pre>
     </div>
 
 
-    <div id="docs-overlay-target"></div>
+    <div id="retype-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Technical Details", level: 2, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Technical", level: 2, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
 </body>
 </html>

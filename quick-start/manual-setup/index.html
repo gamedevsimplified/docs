@@ -10,24 +10,26 @@
     <meta name="generator" content="Retype 3.10.0">
 
     <!-- Primary Meta Tags -->
-    <title>Unnamed Game</title>
-    <meta name="title" content="Unnamed Game">
-    <meta name="description" content="A \"backpack\" inventory proof of concept built on top of a mock-up by Yab Ninja(author and game creator)">
+    <title>Manual Setup (Recommended)</title>
+    <meta name="title" content="Manual Setup (Recommended)">
+    <meta name="description" content="This setup uses the Basic template as an example. If you're using a cloned template, apply the same steps to your version instead.">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://gamedevsimplified.github.io/docs/live-demos/unnamed-game/">
+    <link rel="canonical" href="https://gamedevsimplified.github.io/docs/quick-start/manual-setup/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://gamedevsimplified.github.io/docs/live-demos/unnamed-game/">
-    <meta property="og:title" content="Unnamed Game">
-    <meta property="og:description" content="A \"backpack\" inventory proof of concept built on top of a mock-up by Yab Ninja(author and game creator)">
+    <meta property="og:url" content="https://gamedevsimplified.github.io/docs/quick-start/manual-setup/">
+    <meta property="og:title" content="Manual Setup (Recommended)">
+    <meta property="og:description" content="This setup uses the Basic template as an example. If you're using a cloned template, apply the same steps to your version instead.">
+    <meta property="og:image" content="https://gamedevsimplified.github.io/docs/static/images/tutorials/manual-setup-1.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://gamedevsimplified.github.io/docs/live-demos/unnamed-game/">
-    <meta property="twitter:title" content="Unnamed Game">
-    <meta property="twitter:description" content="A \"backpack\" inventory proof of concept built on top of a mock-up by Yab Ninja(author and game creator)">
+    <meta property="twitter:url" content="https://gamedevsimplified.github.io/docs/quick-start/manual-setup/">
+    <meta property="twitter:title" content="Manual Setup (Recommended)">
+    <meta property="twitter:description" content="This setup uses the Basic template as an example. If you're using a cloned template, apply the same steps to your version instead.">
+    <meta property="twitter:image" content="https://gamedevsimplified.github.io/docs/static/images/tutorials/manual-setup-1.jpg">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
@@ -221,22 +223,98 @@
                                 <!-- Rendered if sidebar right is enabled -->
                                 <div id="retype-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
-<doc-anchor-target id="unnamed-game" class="break-words">
+<doc-anchor-target id="manual-setup-recommended" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#unnamed-game">#</doc-anchor-trigger>
-        <span>Unnamed Game</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#manual-setup-recommended">#</doc-anchor-trigger>
+        <span>Manual Setup (Recommended)</span>
     </h1>
 </doc-anchor-target>
-<p>
-<figure>
-    <div class="relative w-full mb-6 overflow-hidden pt-9/16">
-        <iframe class="w-full h-full border-0 absolute inset-0" src="https://gamedevsimplified.github.io/live-demos/demos/unnamed-game/index.html" allowfullscreen></iframe>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-blue-500 dark:bg-blue-400"></div>
+    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr-lg rounded-br-lg doc-callout bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-500 dark:text-blue-400" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+<p>This setup uses the <code v-pre>Basic</code> template as an example. If you&#x27;re using a cloned template, apply the same steps to your version instead.</p>
+        </div>
     </div>
+</div>
+<p>You can manually integrate a demo template into your scene by following these steps:</p>
+<doc-anchor-target id="1-add-a-ui-document">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#1-add-a-ui-document">#</doc-anchor-trigger>
+        <span>1. Add a <em>UI Document</em></span>
+    </h3>
+</doc-anchor-target>
+<p>To add a <strong>UI Document</strong>, right-click the hierarchy and select <code v-pre>UI Toolkit &gt; UI Document</code>.</p>
+<!-- !!!
+A UI Document is required to render UI Toolkit layouts (UXML and USS) in the scene.
+!!! -->
+<p><figure class="content-center">
+    <img src="../../static/images/tutorials/manual-setup-1.jpg" alt="" />
+    <figcaption class="caption"></figcaption>
 </figure>
 </p>
-<blockquote>
-<p>A &quot;backpack&quot; inventory proof of concept built on top of a mock-up by <a href="https://www.yab.ninja/oubliette">Yab Ninja</a> (author and game creator)</p>
-</blockquote>
+<hr>
+<doc-anchor-target id="2-assign-ui-assets">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#2-assign-ui-assets">#</doc-anchor-trigger>
+        <span>2. Assign UI Assets</span>
+    </h3>
+</doc-anchor-target>
+<p>Select the <strong>UI Document</strong> object in the scene. Navigate to the desired demo folder (<code v-pre>GDS/Demos/Basic</code> in this example), and drag the <strong>Panel Settings</strong> and <strong>Visual Tree Asset</strong> into their corresponding fields in the <strong>UI Document</strong> component.</p>
+<p>These assets handle styling and layout.</p>
+<p><figure class="content-center">
+    <img src="../../static/images/tutorials/manual-setup-2.jpg" alt="" />
+    <figcaption class="caption"></figcaption>
+</figure>
+</p>
+<hr>
+<doc-anchor-target id="3-add-inventory-scripts">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#3-add-inventory-scripts">#</doc-anchor-trigger>
+        <span>3. Add Inventory Scripts</span>
+    </h3>
+</doc-anchor-target>
+<p>Go to <code v-pre>Demos/Basic/Scene/Scripts</code> and add the <code v-pre>InventoryEvents</code> and <code v-pre>InventoryInput</code> scripts to the <strong>UI Document</strong> object.</p>
+<p><code v-pre>InventoryEvents</code> handles item spawning when dropped and cleanup when picked up.</p>
+<p><code v-pre>InventoryInput</code> listens for keyboard input and forwards it to the inventory.</p>
+<p><figure class="content-center">
+    <img src="../../static/images/tutorials/manual-setup-3.jpg" alt="" />
+    <figcaption class="caption"></figcaption>
+</figure>
+</p>
+<hr>
+<doc-anchor-target id="4-assign-the-player-transform">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#4-assign-the-player-transform">#</doc-anchor-trigger>
+        <span>4. Assign the Player Transform</span>
+    </h3>
+</doc-anchor-target>
+<p>If you don&#x27;t already have a <code v-pre>Player</code> object in the scene tree, create a cube and name it <code v-pre>Player</code>.</p>
+<p>Select the <strong>UI Document</strong>, expand the <code v-pre>InventoryEvents</code> component and drag the <code v-pre>Player</code> object from the scene into the <strong>Player Transform</strong> field.</p>
+<p><figure class="content-center">
+    <img src="../../static/images/tutorials/manual-setup-4.jpg" alt="" />
+    <figcaption class="caption"></figcaption>
+</figure>
+</p>
+<hr>
+<doc-anchor-target id="5-assign-item-and-vfx-prefabs">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#5-assign-item-and-vfx-prefabs">#</doc-anchor-trigger>
+        <span>5. Assign Item and VFX Prefabs</span>
+    </h3>
+</doc-anchor-target>
+<p>Go to <code v-pre>Common/Prefabs</code> and drag <code v-pre>WorldItem</code> prefab into the <strong>Item Prefab</strong> field and <code v-pre>PickupVFX</code> prefab into the <strong>PickupVFX</strong> field.</p>
+<p><strong>Items</strong> dropped on the ground will spawn at random positions around the <strong>Player</strong>.</p>
+<p>You can adjust the <strong>Drop Radius</strong> and <strong>Drop Offset</strong> here.</p>
 
                                 
                                 <!-- Required only on API pages -->
@@ -246,16 +324,23 @@
                             
                                 <nav id="retype-nextprev" class="print:hidden flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../live-demos/starter-template/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../quick-start/quick-setup/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">Starter Template</span>
+                                                <span class="block mt-1">Quick Setup</span>
                                             </span>
                                         </a>
                                     </div>
                             
                                     <div class="w-1/2">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../quick-start/add-new-items/">
+                                            <span>
+                                                <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
+                                                <span class="block mt-1">Add new items 🚧</span>
+                                            </span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+                                        </a>
                                     </div>
                                 </nav>
                             </footer>
@@ -296,6 +381,6 @@
 
     <div id="retype-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Unnamed Game", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Manual Setup (Recommended)", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
 </body>
 </html>

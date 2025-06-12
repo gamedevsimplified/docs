@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.7.0.799662063768">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.10.0.803061345779">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 3.7.0">
+    <meta name="generator" content="Retype 3.10.0">
 
     <!-- Primary Meta Tags -->
     <title>Core Concepts</title>
@@ -29,34 +29,34 @@
     <meta property="twitter:title" content="Core Concepts">
     <meta property="twitter:description" content="The framework is built around several key concepts that define its structure and behavior.">
 
-    <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
+    <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=3.7.0.799662063768" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.10.0.803061345779" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.7.0.799662063768" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=3.7.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.7.0.799662063768" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.7.0.799662063768" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.10.0.803061345779" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=3.10.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.10.0.803061345779" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.10.0.803061345779" defer></script>
 </head>
 <body>
-    <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
+    <div id="retype-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
         <div class="absolute bottom-0 left-0 bg-gray-100 dark:bg-dark-800" style="top: 5rem; right: 50%"></div>
     
-        <header id="docs-site-header" class="sticky top-0 z-30 flex w-full h-16 bg-white border-b border-gray-200 md:h-20 dark:bg-dark-850 dark:border-dark-650">
+        <header id="retype-header" class="sticky top-0 z-30 flex w-full h-16 bg-white border-b border-gray-200 md:h-20 dark:bg-dark-850 dark:border-dark-650">
             <div class="container relative flex items-center justify-between pr-6 grow md:justify-start">
                 <!-- Mobile menu button skeleton -->
-                <button v-cloak class="skeleton docs-mobile-menu-button flex items-center justify-center shrink-0 overflow-hidden dark:text-white focus:outline-none rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
-                <div v-cloak id="docs-sidebar-toggle"></div>
+                <button v-cloak class="skeleton retype-mobile-menu-button flex items-center justify-center shrink-0 overflow-hidden dark:text-white focus:outline-none rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
+                <div v-cloak id="retype-sidebar-left-toggle-button"></div>
         
                 <!-- Logo -->
                 <div class="flex items-center justify-between h-full py-2 md:w-75">
                     <div class="flex items-center px-2 md:px-6">
-                        <a id="docs-site-logo" href="../../" class="flex items-center leading-snug text-xl">
+                        <a id="retype-branding-logo" href="../../" class="flex items-center leading-snug text-xl">
                             <span class="w-10 mr-2 grow-0 shrink-0 overflow-hidden">
                                 <img class="max-h-10 dark:hidden md:inline-block" src="../../static/logo.jpg">
                                 <img class="max-h-10 hidden dark:inline-block" src="../../static/logo.jpg">
                             </span>
-                            <span class="dark:text-white font-semibold line-clamp-1 md:line-clamp-2">GameDevSimplified</span>
+                            <span class="dark:text-white font-bold line-clamp-1 md:line-clamp-2">GameDevSimplified</span>
                         </a>
                     </div>
         
@@ -65,7 +65,7 @@
         
                 <div class="flex justify-between md:grow">
                     <!-- Top Nav -->
-                    <nav class="hidden md:flex">
+                    <nav id="retype-header-nav" class="hidden md:flex">
                         <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
                             <li class="mr-6">
                                 <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://discord.com/invite/MFgMX6Fn4m" target="_blank">
@@ -127,7 +127,7 @@
                     </div>
         
                     <div v-cloak class="flex justify-end grow">
-                        <div id="docs-mobile-search-button"></div>
+                        <div id="retype-mobile-search-button"></div>
                         <doc-search-desktop></doc-search-desktop>
         
                         <doc-theme-switch class="lg:ml-2"></doc-theme-switch>
@@ -137,9 +137,9 @@
             </div>
         </header>
     
-        <div class="container relative flex bg-white">
+        <div id="retype-container" class="container relative flex bg-white">
             <!-- Sidebar Skeleton -->
-            <div v-cloak class="fixed flex flex-col shrink-0 duration-300 ease-in-out bg-gray-100 border-gray-200 sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton dark:bg-dark-800 dark:border-dark-650">
+            <div v-cloak class="fixed flex flex-col shrink-0 duration-300 ease-in-out bg-white border-gray-200 sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton dark:bg-dark-800 dark:border-dark-650">
             
                 <div class="flex items-center h-16 px-6">
                     <input class="w-full h-8 px-3 py-2 transition-colors duration-200 ease-linear bg-white border border-gray-200 rounded shadow-none text-sm focus:outline-none focus:border-gray-600 dark:bg-dark-600 dark:border-dark-600" type="text" placeholder="Filter">
@@ -216,11 +216,11 @@
             <div class="grow min-w-0 dark:bg-dark-850">
                 <!-- Render "toolbar" template here on api pages --><!-- Render page content -->
                 <div class="flex">
-                    <div class="min-w-0 p-4 grow md:px-16">
+                    <div id="retype-main" class="min-w-0 p-4 grow md:px-16">
                         <main class="relative pb-12 lg:pt-2">
-                            <div class="docs-markdown" id="docs-content">
+                            <div class="retype-markdown" id="retype-content">
                                 <!-- Rendered if sidebar right is enabled -->
-                                <div id="docs-sidebar-right-toggle"></div>
+                                <div id="retype-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
 <doc-anchor-target id="core-concepts" class="break-words">
     <h1>
@@ -235,16 +235,30 @@
         <span>Item</span>
     </h3>
 </doc-anchor-target>
-<p>An <strong>Item</strong> is a data type that represents an individual object in an inventory. It is highly flexible and comprises two main components:</p>
-<ul>
-<li><strong>Base</strong>: Contains fixed properties like ID, name, and icon path.</li>
-<li><strong>Data</strong>: Holds dynamic properties such as quantity or rarity.</li>
-</ul>
+<p>An <strong>Item</strong> is a data type that represents an individual object in an inventory.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">Item.cs</div>
-<pre class="language-csharp"><code v-pre class="language-csharp">public record Item(int Id, ItemBase ItemBase, ItemData ItemData)
-public record ItemBase(string Id, string Name, string IconPath, bool Stackable, Size Size);
-public record ItemData(int Quant = 1);</code></pre>
+<pre translate="no" class="language-csharp"><code v-pre class="language-csharp">public record Item {
+	public IItemBase Base;
+	public int Id;
+	public int Quant;
+}</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="itembase">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#itembase">#</doc-anchor-trigger>
+        <span>ItemBase</span>
+    </h3>
+</doc-anchor-target>
+<p><strong>ItemBase</strong> contains fixed properties like name, icon path and stacking info.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<div class="codeblock-title">ItemBase.cs</div>
+<pre translate="no" class="language-csharp"><code v-pre class="language-csharp">public class ItemBase : IItemBase {	
+	public string Id;
+	public string Name;
+	public string Icon;
+	public Stack Stack;
+}</code></pre>
 </doc-codeblock></div>
 <p>This architecture is heavily inspired from RPGs like <a href="https://diablo2.io/base/">Diablo</a> and <a href="https://www.poewiki.net/wiki/Body_armour">Path of Exile</a> but the separation ensures adaptability to fit various gameplay scenarios.</p>
 <doc-anchor-target id="slot">
@@ -255,37 +269,41 @@ public record ItemData(int Quant = 1);</code></pre>
 </doc-anchor-target>
 <p>A <strong>Slot</strong> is a container that can either hold an <strong>Item</strong> or remain empty. Slots can enforce <strong>restrictions</strong>, such as allowing only specific types of items, by providing a function (<code v-pre>Accepts</code>) that operates on <code v-pre>Item</code> type.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-csharp"><code v-pre class="language-csharp">// Inventory.cs
-public delegate bool FilterFn(Item item);
-public record Slot(Item Item) { 
-	public FilterFn Accepts = (_) =&gt; true; 
+<div class="codeblock-title">Slot.cs</div>
+<pre translate="no" class="language-csharp"><code v-pre class="language-csharp">public record Slot(Item Item) { 
+	public Predicate&lt;Item&gt; Accepts = _ =&gt; true; 
 };</code></pre>
 </doc-codeblock></div>
 <p>The base <code v-pre>Slot</code> type is extended into specialized slot types:</p>
 <ul>
 <li><code v-pre>ListSlot</code>: Index-based storage.</li>
 <li><code v-pre>SetSlot</code>: Named slots for equipment/wearable items.</li>
-<li><code v-pre>GridSlot</code> (<em>not available in Lite</em>): Grid-based position storage.</li>
+<li><code v-pre>GridSlot</code> (PRO): Grid-based position storage.</li>
 </ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<div class="codeblock-title">Slot.cs</div>
+<pre translate="no" class="language-csharp"><code v-pre class="language-csharp">public record ListSlot(int Index, Item Item) : Slot(Item);
+public record SetSlot(string Key, Item Item) : Slot(Item);
+public record GridSlot(Pos Pos, Item Item, bool Enabled = true) : Slot(Item);</code></pre>
+</doc-codeblock></div>
 <doc-anchor-target id="bag">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#bag">#</doc-anchor-trigger>
         <span>Bag</span>
     </h3>
 </doc-anchor-target>
-<p>The <strong>Bag</strong> represents an inventory. It manages a collection of <strong>Slots</strong>. Each inventory type comes with its own behavior and can enforce restrictions on accepted items.</p>
+<p>The <strong>Bag</strong> represents an inventory. Each inventory type comes with its own behavior and can enforce restrictions on accepted items.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-csharp"><code v-pre class="language-csharp">// Types.cs
-public abstract record Bag(string Id) {
-	public static NoBag NoBag = new();
-	public FilterFn Accepts = Filters.Everything;
-}</code></pre>
+<div class="codeblock-title">Bag.cs</div>
+<pre translate="no" class="language-csharp"><code v-pre class="language-csharp">public abstract class Bag {
+	public Predicate&lt;Item&gt; Accepts = (_) =&gt; true;        
+};</code></pre>
 </doc-codeblock></div>
 <p>The base <code v-pre>Bag</code> type is extended into specialized types:</p>
 <ul>
 <li><code v-pre>ListBag</code>: Contains a list of <code v-pre>ListSlots</code></li>
 <li><code v-pre>SetBag</code>: Contains a list of <code v-pre>SetSlots</code></li>
-<li><code v-pre>GridBag</code> (<em>PRO</em>): Contains a 2D array of <code v-pre>GridSlots</code> as well as a list of <code v-pre>GridItems</code></li>
+<li><code v-pre>GridBag</code> (PRO): Contains a 2D array of <code v-pre>GridSlots</code> as well as a list of <code v-pre>GridItems</code></li>
 </ul>
 <doc-anchor-target id="event-bus-and-events">
     <h3>
@@ -295,8 +313,10 @@ public abstract record Bag(string Id) {
 </doc-anchor-target>
 <p>The framework uses an <a href="https://dzone.com/articles/design-patterns-event-bus"><strong>Event Bus</strong></a> to decouple its components. <strong>Events</strong> are data containers describing actions, such as picking up an item. For example, a <code v-pre>PickItem</code> event includes the item itself, the source inventory and slot.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-csharp"><code v-pre class="language-csharp">// Events.cs
-public record PickItemEvent(Bag Bag, Item Item, Slot Slot);</code></pre>
+<div class="codeblock-title">Events.cs</div>
+<pre translate="no" class="language-csharp"><code v-pre class="language-csharp">public record PickItem(Bag Bag, Slot Slot, EventModifiers Mods);
+public record PlaceItem(Bag Bag, Slot Slot, Item Item, EventModifiers Mods);
+public record AddItem(Bag Bag, Item Item);</code></pre>
 </doc-codeblock></div>
 <p>An event does not perform any actions itself, that falls under the responsibility of the <strong>Store</strong>.</p>
 <doc-anchor-target id="store">
@@ -308,12 +328,12 @@ public record PickItemEvent(Bag Bag, Item Item, Slot Slot);</code></pre>
 <p>Inspired by web technologies like <a href="https://redux.js.org/faq/general#when-should-i-use-redux"><strong>Redux</strong></a>, the <strong>Store</strong> serves as the central hub for managing system state. It subscribes to events on event channels and performs necessary state updates. All changes to the system state flow through the <strong>Store</strong>, ensuring consistency and predictability.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">Store.cs</div>
-<pre class="language-csharp"><code v-pre class="language-csharp">public Store() {
-	Bus.Subscribe&lt;PickItemEvent&gt;(e =&gt; OnPickItem(e as PickItemEvent));
+<pre translate="no" class="language-csharp"><code v-pre class="language-csharp">public Store() {
+	Bus.Subscribe&lt;PickItem&gt;(e =&gt; OnPickItem(e as PickItem));
 	// ...
 }
 
-void OnPickItem(PickItemEvent e) {
+void OnPickItem(PickItem e) {
 	LogEvent(e);
 	// ...
 }</code></pre>
@@ -328,8 +348,8 @@ void OnPickItem(PickItemEvent e) {
 For example an <em>Apple</em> is defined as a <strong>stackable</strong>, <strong>consumable</strong> <strong>basic item</strong>, while a <em>Dagger</em> is a <strong>1-handed</strong> <strong>weapon</strong>, with <em>Attack Damage</em> and <em>Attack Speed</em></p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <div class="codeblock-title">Bases.cs</div>
-<pre class="language-csharp"><code v-pre class="language-csharp">public static ItemBase Apple = new(&quot;Apple&quot;, &quot;Apple&quot;, &quot;Shared/Images/items/apple&quot;, true, ItemClass.Consumable);
-public static WeaponItemBase ShortSword = new(&quot;ShortSword&quot;, &quot;Short Sword&quot;, &quot;Shared/Images/items/sword-blue&quot;, ItemClass.Weapon1H, 80, 1.5f);</code></pre>
+<pre translate="no" class="language-csharp"><code v-pre class="language-csharp">public static readonly ItemBase Apple = new() { Id = &quot;Apple&quot;, Name = &quot;Apple&quot;, Icon = &quot;Shared/Images/items/apple&quot;, Stack = Stack.Infinite, Class = Class.Consumable };
+public static readonly WeaponBase ShortSword = new() { Id = &quot;ShortSword&quot;, Name = &quot;Short Sword&quot;, Icon = &quot;Shared/Images/items/sword-blue&quot;, Class = Class.Sword1h, Attack = new(80, 100), AttackSpeed = 1.5f };</code></pre>
 </doc-codeblock></div>
 <doc-anchor-target id="behaviors">
     <h3>
@@ -339,7 +359,7 @@ public static WeaponItemBase ShortSword = new(&quot;ShortSword&quot;, &quot;Shor
 </doc-anchor-target>
 <p>The UI is decoupled from any interactivity logic. All logic is abstracted away in behaviors, like showing a tooltip on hovering an item, dragging an item to pick it up or showing a &quot;ghost&quot; version of the dragged item.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-csharp"><code v-pre class="language-csharp">// Behaviors.cs
+<pre translate="no" class="language-csharp"><code v-pre class="language-csharp">// Behaviors.cs
 public static VisualElement WithDragToPickBehavior(this VisualElement element, Observable&lt;Item&gt; draggedItem, EventBus bus) {/*...*/}
 public static VisualElement WithItemTooltipBehavior&lt;T&gt;(this VisualElement root) where T : Component&lt;Item&gt; {/*...*/}
 
@@ -355,9 +375,9 @@ this.Add(&quot;root-layer&quot;)
                                 <!-- Required only on API pages -->
                                 <doc-toolbar-member-filter-no-results></doc-toolbar-member-filter-no-results>
                             </div>
-                            <footer class="clear-both">
+                            <footer id="retype-content-footer" class="clear-both">
                             
-                                <nav class="flex mt-14">
+                                <nav id="retype-nextprev" class="print:hidden flex mt-14">
                                     <div class="w-1/2">
                                         <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../docs/getting-started/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
@@ -372,7 +392,7 @@ this.Add(&quot;root-layer&quot;)
                                         <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../docs/technical-details/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">Technical Details</span>
+                                                <span class="block mt-1">Technical</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -381,13 +401,13 @@ this.Add(&quot;root-layer&quot;)
                             </footer>
                         </main>
                 
-                        <div class="border-t dark:border-dark-650 pt-6 mb-8">
-                            <footer class="flex flex-wrap items-center justify-between">
-                                <div>
+                        <div id="retype-page-footer" class="print:border-none border-t dark:border-dark-650 pt-6 mb-8">
+                            <footer class="flex flex-wrap items-center justify-between print:justify-center">
+                                <div id="retype-footer-links" class="print:hidden">
                                     <ul class="flex flex-wrap items-center text-sm">
                                     </ul>
                                 </div>
-                                <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>© 2025 GameDevSimplified. All rights reserved.</p></div>
+                                <div id="retype-copyright" class="print:justify-center docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>© 2025 GameDevSimplified. All rights reserved.</p></div>
                             </footer>
                         </div>
                     </div>
@@ -414,7 +434,7 @@ this.Add(&quot;root-layer&quot;)
     </div>
 
 
-    <div id="docs-overlay-target"></div>
+    <div id="retype-overlay-target"></div>
 
     <script data-cfasync="false">window.__DOCS__ = { "title": "Core Concepts", level: 2, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
 </body>

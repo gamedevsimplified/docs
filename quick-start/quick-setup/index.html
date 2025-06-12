@@ -4,58 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.7.0.799662063768">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.10.0.803061345779">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 3.7.0">
+    <meta name="generator" content="Retype 3.10.0">
 
     <!-- Primary Meta Tags -->
-    <title>How to use</title>
-    <meta name="title" content="How to use">
-    <meta name="description" content="The demos serve both as a showcase of what's possible and as a solid starting point for a custom inventory system.">
+    <title>Quick Setup</title>
+    <meta name="title" content="Quick Setup">
+    <meta name="description" content="This setup uses the Basic template as an example.">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://gamedevsimplified.github.io/docs/docs/how-to-use/">
+    <link rel="canonical" href="https://gamedevsimplified.github.io/docs/quick-start/quick-setup/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://gamedevsimplified.github.io/docs/docs/how-to-use/">
-    <meta property="og:title" content="How to use">
-    <meta property="og:description" content="The demos serve both as a showcase of what's possible and as a solid starting point for a custom inventory system.">
+    <meta property="og:url" content="https://gamedevsimplified.github.io/docs/quick-start/quick-setup/">
+    <meta property="og:title" content="Quick Setup">
+    <meta property="og:description" content="This setup uses the Basic template as an example.">
+    <meta property="og:image" content="https://gamedevsimplified.github.io/docs/static/images/tutorials/quick-setup-1.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://gamedevsimplified.github.io/docs/docs/how-to-use/">
-    <meta property="twitter:title" content="How to use">
-    <meta property="twitter:description" content="The demos serve both as a showcase of what's possible and as a solid starting point for a custom inventory system.">
+    <meta property="twitter:url" content="https://gamedevsimplified.github.io/docs/quick-start/quick-setup/">
+    <meta property="twitter:title" content="Quick Setup">
+    <meta property="twitter:description" content="This setup uses the Basic template as an example.">
+    <meta property="twitter:image" content="https://gamedevsimplified.github.io/docs/static/images/tutorials/quick-setup-1.jpg">
 
-    <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
+    <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=3.7.0.799662063768" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.10.0.803061345779" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.7.0.799662063768" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=3.7.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.7.0.799662063768" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.10.0.803061345779" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=3.10.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.10.0.803061345779" data-turbo-eval="false" defer></script>
 </head>
 <body>
-    <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
+    <div id="retype-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
         <div class="absolute bottom-0 left-0 bg-gray-100 dark:bg-dark-800" style="top: 5rem; right: 50%"></div>
     
-        <header id="docs-site-header" class="sticky top-0 z-30 flex w-full h-16 bg-white border-b border-gray-200 md:h-20 dark:bg-dark-850 dark:border-dark-650">
+        <header id="retype-header" class="sticky top-0 z-30 flex w-full h-16 bg-white border-b border-gray-200 md:h-20 dark:bg-dark-850 dark:border-dark-650">
             <div class="container relative flex items-center justify-between pr-6 grow md:justify-start">
                 <!-- Mobile menu button skeleton -->
-                <button v-cloak class="skeleton docs-mobile-menu-button flex items-center justify-center shrink-0 overflow-hidden dark:text-white focus:outline-none rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
-                <div v-cloak id="docs-sidebar-toggle"></div>
+                <button v-cloak class="skeleton retype-mobile-menu-button flex items-center justify-center shrink-0 overflow-hidden dark:text-white focus:outline-none rounded-full w-10 h-10 ml-3.5 md:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="mb-px shrink-0" width="24" height="24" viewBox="0 0 24 24" role="presentation" style="margin-bottom: 0px;"><g fill="currentColor"><path d="M2 4h20v2H2zM2 11h20v2H2zM2 18h20v2H2z"></path></g></svg></button>
+                <div v-cloak id="retype-sidebar-left-toggle-button"></div>
         
                 <!-- Logo -->
                 <div class="flex items-center justify-between h-full py-2 md:w-75">
                     <div class="flex items-center px-2 md:px-6">
-                        <a id="docs-site-logo" href="../../" class="flex items-center leading-snug text-xl">
+                        <a id="retype-branding-logo" href="../../" class="flex items-center leading-snug text-xl">
                             <span class="w-10 mr-2 grow-0 shrink-0 overflow-hidden">
                                 <img class="max-h-10 dark:hidden md:inline-block" src="../../static/logo.jpg">
                                 <img class="max-h-10 hidden dark:inline-block" src="../../static/logo.jpg">
                             </span>
-                            <span class="dark:text-white font-semibold line-clamp-1 md:line-clamp-2">GameDevSimplified</span>
+                            <span class="dark:text-white font-bold line-clamp-1 md:line-clamp-2">GameDevSimplified</span>
                         </a>
                     </div>
         
@@ -64,7 +66,7 @@
         
                 <div class="flex justify-between md:grow">
                     <!-- Top Nav -->
-                    <nav class="hidden md:flex">
+                    <nav id="retype-header-nav" class="hidden md:flex">
                         <ul class="flex flex-col mb-4 md:pl-16 md:mb-0 md:flex-row md:items-center">
                             <li class="mr-6">
                                 <a class="py-2 md:mb-0 inline-flex items-center text-sm whitespace-nowrap transition-colors duration-200 ease-linear md:text-blue-500 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200" href="https://discord.com/invite/MFgMX6Fn4m" target="_blank">
@@ -126,7 +128,7 @@
                     </div>
         
                     <div v-cloak class="flex justify-end grow">
-                        <div id="docs-mobile-search-button"></div>
+                        <div id="retype-mobile-search-button"></div>
                         <doc-search-desktop></doc-search-desktop>
         
                         <doc-theme-switch class="lg:ml-2"></doc-theme-switch>
@@ -136,9 +138,9 @@
             </div>
         </header>
     
-        <div class="container relative flex bg-white">
+        <div id="retype-container" class="container relative flex bg-white">
             <!-- Sidebar Skeleton -->
-            <div v-cloak class="fixed flex flex-col shrink-0 duration-300 ease-in-out bg-gray-100 border-gray-200 sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton dark:bg-dark-800 dark:border-dark-650">
+            <div v-cloak class="fixed flex flex-col shrink-0 duration-300 ease-in-out bg-white border-gray-200 sidebar top-20 w-75 border-r h-screen md:sticky transition-transform skeleton dark:bg-dark-800 dark:border-dark-650">
             
                 <div class="flex items-center h-16 px-6">
                     <input class="w-full h-8 px-3 py-2 transition-colors duration-200 ease-linear bg-white border border-gray-200 rounded shadow-none text-sm focus:outline-none focus:border-gray-600 dark:bg-dark-600 dark:border-dark-600" type="text" placeholder="Filter">
@@ -215,121 +217,87 @@
             <div class="grow min-w-0 dark:bg-dark-850">
                 <!-- Render "toolbar" template here on api pages --><!-- Render page content -->
                 <div class="flex">
-                    <div class="min-w-0 p-4 grow md:px-16">
+                    <div id="retype-main" class="min-w-0 p-4 grow md:px-16">
                         <main class="relative pb-12 lg:pt-2">
-                            <div class="docs-markdown" id="docs-content">
+                            <div class="retype-markdown" id="retype-content">
                                 <!-- Rendered if sidebar right is enabled -->
-                                <div id="docs-sidebar-right-toggle"></div>
+                                <div id="retype-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
-<doc-anchor-target id="how-to-use" class="break-words">
+<doc-anchor-target id="quick-setup" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#how-to-use">#</doc-anchor-trigger>
-        <span>How to use</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#quick-setup">#</doc-anchor-trigger>
+        <span>Quick Setup</span>
     </h1>
 </doc-anchor-target>
-<doc-anchor-target id="how-to-use-the-demos">
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-blue-500 dark:bg-blue-400"></div>
+    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr-lg rounded-br-lg doc-callout bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-500 dark:text-blue-400" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+<p>This setup uses the <code v-pre>Basic</code> template as an example.</p>
+        </div>
+    </div>
+</div>
+<p>To quickly add an inventory to your scene, locate the <code v-pre>Inventory</code> prefab in one of the demo/example <code v-pre>Prefabs</code> folders and drag it into your scene.</p>
+<!-- TODO: explain what the prefab contains -->
+<doc-anchor-target id="1-add-the-inventory-prefab">
     <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#how-to-use-the-demos">#</doc-anchor-trigger>
-        <span>How to use the demos</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#1-add-the-inventory-prefab">#</doc-anchor-trigger>
+        <span>1. Add the <em>Inventory</em> prefab</span>
     </h3>
 </doc-anchor-target>
-<p>The demos serve both as a showcase of what&#x27;s possible and as a solid starting point for a custom inventory system.<br />
-They are designed to be copied into projects and modified as needed.<br />
-You can start with the <code v-pre>Minimal</code> version and add the features you need, or with <code v-pre>Basic</code> (I might rename this to <code v-pre>Minecraft</code> if the Asset Store allows it) and trim what you don’t need while adding your own features. When copying the whole thing, refactor/rename the namespaces in all files to something that makes sense to you. Some demos may include files that have the demo name in their names. You should rename those too, for consistency. Some editors may help you with automating this but I don&#x27;t even bother and do it by hand - there aren&#x27;t <em>that</em> many files.</p>
-<doc-anchor-target id="how-do-you-decide-what-you-need">
+<p>Navigate to the desired demo folder (<code v-pre>GDS/Demos/Basic</code> in this example), and drag the <code v-pre>Inventory</code> prefab from the <code v-pre>Prefabs</code> folder into your scene hierarchy.</p>
+<p><figure class="content-center">
+    <img src="../../static/images/tutorials/quick-setup-1.jpg" alt="" />
+    <figcaption class="caption"></figcaption>
+</figure>
+</p>
+<hr>
+<doc-anchor-target id="2-link-the-player-transform">
     <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#how-do-you-decide-what-you-need">#</doc-anchor-trigger>
-        <span>How do you decide what you need?</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#2-link-the-player-transform">#</doc-anchor-trigger>
+        <span>2. Link the <em>Player Transform</em></span>
     </h3>
 </doc-anchor-target>
-<doc-anchor-target id="the-store">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#the-store">#</doc-anchor-trigger>
-        <span>The Store</span>
-    </h3>
-</doc-anchor-target>
-<p>First, there’s the <code v-pre>Store</code>, which is the central place where data is stored and handled.<br />
-The <code v-pre>Store</code> must listen to at least two events—<code v-pre>pick item</code> and <code v-pre>place item</code>.<br />
-Handlers for these events pass the data to <code v-pre>Core</code> functions for processing. Check either demo for examples of this.<br />
-For instance, in <code v-pre>Basic</code>, moving an item between inventories (such as with <code v-pre>ctrl+click</code>), is handled in the <code v-pre>on pick</code> event handler.</p>
-<p>The <code v-pre>Store</code> must also track the currently dragged item, which is an <code v-pre>Observable&lt;Item&gt;</code>.<br />
-Why an observable? So that different parts of the system can react to changes without needing to explicitly subscribe to a <code v-pre>Dragged Item Changed</code> event.<br />
-The <code v-pre>Store</code> is a singleton, and that’s fine—everything in it is read-only.</p>
-<doc-anchor-target id="the-type-system-and-items">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#the-type-system-and-items">#</doc-anchor-trigger>
-        <span>The Type System and Items</span>
-    </h3>
-</doc-anchor-target>
-<p>You will need to enhance the type system to fit to your needs.
-The <code v-pre>Minimal</code> demo doesn’t expand on the type system and directly creates items in the <code v-pre>Store</code>.
-However, <code v-pre>Basic</code> introduces additional base types and adds <code v-pre>Rarity</code> to item data (see <code v-pre>Basic/Inventory/Types.cs</code>).</p>
-<p>All items have <code v-pre>quantity</code> and <code v-pre>stackable</code> fields—these seemed like the only universally shared properties across all inventory types.<br />
-Another common property is the <code v-pre>icon path</code>, which is also included in base item data.</p>
-<p>Why are items split into <code v-pre>Base</code> and <code v-pre>Data</code>?<br />
-This follows the <a href="https://en.wikipedia.org/wiki/Flyweight_pattern">Flyweight pattern</a>, an efficient design pattern that embraces composition over inheritance.<br />
-For example, an <code v-pre>Apple</code> instance doesn’t need to carry redundant, unchanging data like its icon or description—it can reference a shared base instead.</p>
-<doc-anchor-target id="the-ui-system">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#the-ui-system">#</doc-anchor-trigger>
-        <span>The UI System</span>
-    </h3>
-</doc-anchor-target>
-<p>You will need a <code v-pre>UI Document</code> attached to a <code v-pre>GameObject</code> in your scene, a <code v-pre>Panel Settings</code> asset, a <code v-pre>Root UXML</code> asset, and a script to attach the inventory’s root to the document.</p>
-<p>You can start with the built-in renderers for items, slots, and &quot;bags&quot; (inventories) and create custom views as needed.<br />
-For example, in the <code v-pre>Basic</code> demo, the custom <code v-pre>BasicItemView</code> is a copy of <code v-pre>ItemView</code> with an extra background element to reflect item rarity. You could argue that it should extend the base instead, but for components this small, it&#x27;s not worth the trouble. More on this later.</p>
-<p>You&#x27;re expected to create custom views for your inventory screens and windows, using a mix of built-in and custom views alongside other UI elements like buttons and text.<br />
-For an example, see <code v-pre>Basic/Views/ChestWindow.cs</code>. It uses the built-in <code v-pre>ListBag</code> renderer and adds a button to collect all items.</p>
-<p>The UI should mainly define structure and styling, with minimal behavior (such as reacting to button clicks).<br />
-Core logic is abstracted into extension methods (see the next section for details).</p>
-<p>Each demo includes a <code v-pre>Theme</code> file (see <code v-pre>Resources/Basic/BasicTheme.tss</code>).<br />
-Technically, you could use the default theme, but it&#x27;s quite ugly, and you’ll likely customize it anyway.</p>
-<p>Most styling is consolidated into a single large USS file (<code v-pre>BasicStyling.uss</code>).<br />
-Although not the cleanest approach, I found it easier to search for selectors in one big file rather than looking in many smaller ones.<br />
-If some styles are unrelated to the rest, you can move them into separate files and import them into the theme (see <code v-pre>BasicTooltip.uss</code>).<br />
-This is just a suggestion—organize your styles however makes the most sense to you.</p>
-<p>If something looks off, a missing or incorrect style is likely the cause.<br />
-To help with debugging, each demo includes a window that displays the raw state of the <code v-pre>Store</code>.<br />
-To open it, go to <code v-pre>Tools &gt; Basic &gt; Debug</code>. You’re expected to modify this window (through code, of course, see <code v-pre>Basic/Editor/Debug.cs</code>) and add any extra data you need to observe.</p>
-<doc-anchor-target id="behaviors-and-interactions">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#behaviors-and-interactions">#</doc-anchor-trigger>
-        <span>Behaviors and Interactions</span>
-    </h3>
-</doc-anchor-target>
-<p>You’ll need to attach behaviors to the root layer of your UI document (see <code v-pre>Basic/Views/RootLayer.cs</code>).<br />
-These behaviors handle visual interactions, such as showing the dragged item or displaying tooltips on hover (see <code v-pre>Core/Behaviors/Behaviors.cs</code>) .</p>
-<p>For example, <code v-pre>WithRestrictedSlotBehavior</code> observes the <strong>dragged item</strong> and reacts to <em>mouse over/out</em> events on all <code v-pre>SlotViews</code>.  It checks whether the slot accepts the dragged item (defined when the slot is created) and visually marks the slot as legal or illegal by adding a USS class (<code v-pre>&quot;legal-action&quot;</code>).<br />
-This applies a red or green overlay on the slot (assuming the relevant styles are defined).</p>
-<p>In order to be able to pick (and place) items and see them move you will need to add a <code v-pre>pick</code> and a <code v-pre>ghost item</code> behavior. Currently there are two <code v-pre>pick</code> behaviors and one <code v-pre>ghost</code> behavior defined (placing is also defined in the pick behavior):</p>
-<ul>
-<li><code v-pre>WithClickToPickBehavior</code> will pick an item on mouse down</li>
-<li><code v-pre>WithDragToPickBehavior</code> will pick an item when it was dragged a minimum amount of pixels (<code v-pre>32</code> by default), as well as on mouse up</li>
-<li><code v-pre>WithGhostItemBehavior</code> watches mouse for movement and renders a view of the dragged item.</li>
-</ul>
+<p>If you don&#x27;t already have a <code v-pre>Player</code> object in your scene, create a <strong>Cube</strong> and name it <code v-pre>Player</code>.</p>
+<p>Select the <code v-pre>Inventory</code> object in the scene, expand the <code v-pre>InventoryEvents</code> component, and drag the <code v-pre>Player</code> object from the hierarchy into the <code v-pre>Player Transform</code> field.</p>
+<p><strong>Items</strong> dropped on the ground will spawn at random positions around the <strong>Player</strong>.</p>
+<p><figure class="content-center">
+    <img src="../../static/images/tutorials/quick-setup-2.jpg" alt="" />
+    <figcaption class="caption"></figcaption>
+</figure>
+</p>
 
                                 
                                 <!-- Required only on API pages -->
                                 <doc-toolbar-member-filter-no-results></doc-toolbar-member-filter-no-results>
                             </div>
-                            <footer class="clear-both">
+                            <footer id="retype-content-footer" class="clear-both">
                             
-                                <nav class="flex mt-14">
+                                <nav id="retype-nextprev" class="print:hidden flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../docs/technical-details/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../docs/roadmap/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">Technical Details</span>
+                                                <span class="block mt-1">Roadmap</span>
                                             </span>
                                         </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../docs/troubleshooting/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../quick-start/manual-setup/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">Troubleshooting</span>
+                                                <span class="block mt-1">Manual Setup (Recommended)</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -338,13 +306,13 @@ This applies a red or green overlay on the slot (assuming the relevant styles ar
                             </footer>
                         </main>
                 
-                        <div class="border-t dark:border-dark-650 pt-6 mb-8">
-                            <footer class="flex flex-wrap items-center justify-between">
-                                <div>
+                        <div id="retype-page-footer" class="print:border-none border-t dark:border-dark-650 pt-6 mb-8">
+                            <footer class="flex flex-wrap items-center justify-between print:justify-center">
+                                <div id="retype-footer-links" class="print:hidden">
                                     <ul class="flex flex-wrap items-center text-sm">
                                     </ul>
                                 </div>
-                                <div class="docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>© 2025 GameDevSimplified. All rights reserved.</p></div>
+                                <div id="retype-copyright" class="print:justify-center docs-copyright py-2 text-gray-500 dark:text-dark-350 text-sm leading-relaxed"><p>© 2025 GameDevSimplified. All rights reserved.</p></div>
                             </footer>
                         </div>
                     </div>
@@ -371,8 +339,8 @@ This applies a red or green overlay on the slot (assuming the relevant styles ar
     </div>
 
 
-    <div id="docs-overlay-target"></div>
+    <div id="retype-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "How to use", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Quick Setup", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
 </body>
 </html>
