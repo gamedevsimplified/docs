@@ -106,7 +106,7 @@ Splits a stack in half.
 public static (Item from, Item to) UnstackHalf(Item fromItem)
 ```
 ### CanStack
-Checks if an Item can be stacked onto antoerh Item.
+Checks if an Item can be stacked onto another Item.
 ```cs
 public static bool CanStack(this Item fromItem, Item toItem)
 ```
