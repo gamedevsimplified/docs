@@ -1,5 +1,5 @@
 ---
-order: 1000
+order: 600
 title: Clone a template
 ---
 !!!
@@ -70,5 +70,5 @@ Create a new **Scene** and name it `MyGame`.
 ---
 ### 8. Add an Inventory
 
-Continue by following [this tutorial](/quick-start/manual-setup) to add an inventory to a scene.
+Continue by following [this tutorial](manual-setup) to add an inventory to a scene.
 

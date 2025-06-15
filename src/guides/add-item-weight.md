@@ -1,5 +1,5 @@
 ---
-order: 900
+order: 700
 title: Add Item weight 🚧
 ---
 
