@@ -1,21 +1,25 @@
 ---
 order: 500
-title: New Input System
+title: Use New Input System
 --- 
+
+This guide walks you through integrating the **Inventory** asset with Unity's **New Input System**.
 
 !!!
 This guide uses the `Basic` template as an example. 
 !!!
 
+
 > Prerequisites: 
 > - **Input System** package installed.
 > - **Input Actions** asset created.
+
 
 ### 1. Define Input Actions
 
 Open the **Input Actions** asset.
 
-Add a new action map with the following actions:
+Add a new **Action Map** with the following actions:
 
 ![](/static/images/tutorials/new-input-asset.jpg){.rounded-lg}
 
