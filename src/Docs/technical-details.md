@@ -1,6 +1,6 @@
 ---
 order: "800"
-title: Technical
+title: Technical Details
 ---
 
 ## Functional programming

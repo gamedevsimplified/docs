@@ -1,9 +1,9 @@
 ---
-label: Inventory System
+label: Inventory Framework
 icon: home
 ---
 
-![](/static/images/branding-yt.png)
+![](/static/images/branding-yt-2.png)
 
 {.callout}
 > A versatile and extensible framework for creating inventories using UI Toolkit.
