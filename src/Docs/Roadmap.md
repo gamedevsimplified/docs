@@ -1,8 +1,10 @@
 ---
 order: "400"
 ---
-- **PRO** version (in final stages of development)
-- Various optimizations (pool events)
+
+- Various optimizations (pool events, change detection)
 - Add item sorting to **Core**
 - Add **Scriptable Objects** support
 - Improve Editor support
+- Enhance demos
+- Add a **mobile** demo

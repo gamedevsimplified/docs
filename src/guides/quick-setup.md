@@ -6,6 +6,9 @@ order: 1000
 This setup uses the `Basic` template as an example.
 !!!
 
+https://www.youtube.com/watch?v=RS3KWIsWBCY
+
+
 To quickly add an inventory to your scene, locate the `Inventory` prefab in one of the demo/example `Prefabs` folders and drag it into your scene.
 
 <!-- TODO: explain what the prefab contains -->
