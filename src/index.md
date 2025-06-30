@@ -21,8 +21,6 @@ This package is targeted at **programmers** but can be used by non programmers. 
 
 ✔️ Features
 
-- 3d Scene
-- 2 Demos
 - Drag and drop
 - Ctrl+Click to Move
 - Buy/Sell/Drop/Destroy

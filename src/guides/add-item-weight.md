@@ -1,15 +1,17 @@
 ---
 order: 700
-title: Add Item weight 🚧
+title: Add Item weight
 ---
 
-{{include "snippets/wip"}}
+!!!
+This setup uses the `Basic` template as an example. If you're using another template, apply the same steps to your version instead.
+!!!
 
-!!!
-This setup uses the `Basic` template as an example. If you're using a cloned template, apply the same steps to your version instead.
-!!!
+If your game uses an *Encumbrance* system where item weight matters, you can extend a template to support it.
 
 ### 1. Extend ItemBase
+
+Add a `Weight` field to `ItemBase`.
 
 ```cs #4 ItemBase.cs
 public class ItemBase : GDS.Core.ItemBase {
@@ -18,6 +20,8 @@ public class ItemBase : GDS.Core.ItemBase {
     public int Weight = 0; /*✚*/
 }
 ```
+
+Expose a `Weight` property in `BasicItem` that returns the base item's weight.
 
 ```cs #5 Item.cs
 public record BasicItem : Item {
@@ -29,7 +33,9 @@ public record BasicItem : Item {
 ```
 
 ---
-### 2. Update Bases
+### 2. Set Weights for Item Bases
+
+For each item base that should have weight, assign an appropriate value to its `Weight` field.
 
 ```cs # Bases.cs
 public static readonly ArmorBase WarriorHelmet = new() { Id = "WarriorHelmet", /*...*/ Weight = 10 /*✚*/};
@@ -43,7 +49,11 @@ public static readonly WeaponBase ShortSword = new() { Id = "ShortSword", /*...*
 ```
 
 ---
-### 3. Update Tooltip
+### 3. Show Weight in Tooltips
+
+To display item weight in the tooltip, update the **Tooltip** view.
+
+This example uses a label but you can use an icon instead.
 
 ```cs #7,15,22,26 Tooltip.cs
 VisualElement WeaponTooltip(WeaponItem item, string cost) => Div(
@@ -76,10 +86,12 @@ Label WeightLabel(BasicItem item) => AffixLabel("Weight", item.Weight).SetVisibl
 
 ![The **Weight** should show up in the **Tooltip**](/static/images/tutorials/add-weight-tooltip.jpg){.rounded-lg}
 
-
 ---
 
-### 4. Update Character Sheet
+### 4. Compute Total Weight
+
+In order to show the total weight in the **Character Sheet** view, we need to add it to `CharacterSheet` class and recompute on equipment change.
+
 ```cs #1,4,7,14,17 CharacterSheet.cs
 public record CharacterStats(int Defense, float Damage, float AttackSpeed, int Weight /*✚*/);
 public Observable<CharacterStats> Stats;
@@ -103,6 +115,11 @@ public CharacterSheet(SetBag bag) {
 ```
 
 ### 5. Update Character Sheet Window
+
+Finally, update the `CharacterSheetWindow` class to show the total weight.
+
+As a bonus, you can add color-coded encumbrance levels based on custom ranges — tweak these thresholds as needed.
+
 ```cs #6,13,21,26-30 CharacterSheetWindow.cs 
 public CharacterSheetWindow(CharacterSheet character) {
 
