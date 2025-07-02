@@ -1,13 +1,15 @@
 ---
 order: 800
-title: Add new items 🚧
+title: Add new items
 --- 
 
-{{include "snippets/wip"}}
+## Add new item bases
 
-## Add new item base
+New item types can be added by defining additional fields in the `Bases.cs` file. 
 
-> manual process
+Each field represents a new item base that becomes part of the system.
+
+For now, this is a manual process, but in the future it may be driven by a **ScriptableObject** or a server request.
 
 ```cs # Bases.cs
 public static class Bases {
@@ -24,9 +26,13 @@ public static class Bases {
 }
 ```
 
-## Add new initial item
+## Add new initial items
 
-> manual process
+To add a new initial item to an inventory, update the appropriate variable in `Store/InitialState.cs`.
+
+For example, the following adds a stack of 20 **Mana Potions** to the **Hotbar**.
+
+The initial state is applied when the inventory is first initialized or reset.
 
 ```cs #3 InitialState.cs
 public static BasicItem[] Hotbar = new[] {
@@ -36,18 +42,21 @@ public static BasicItem[] Hotbar = new[] {
 ```
 ![The Mana Potion should appear in the Hotbar](/static/images/tutorials/add-item-hotbar.jpg){.rounded-lg}
 
-## Add a store component to a scene object
+## Add a Store Component to a GameObject
 
-> works only with `Basic`
+The Basic template allows you to attach an inventory to a **GameObject** and add items directly in the editor.
 
-> when working on original `Basic` template
+In this example, we define a **Chest** containing 3 items:
  
-1. Remove `StoreBag`
-2. Add `WorldBag`
-3. Specify an Id
-4. Set size and add items
+1. Select an "interactive object" in the scene.
+2. Remove the `StoreBag` script.
+3. Add the `WorldBag` script (from `Basic/Scripts`).
+4. Specify a *Bag ID* and *Type*.
+5. Set *size* and add *items*.
 
-> when working with a cloned `Basic` template, add `ItemDrawer` editor script for better experience
+![Add items to a Chest](/static/images/tutorials/world-bag.jpg){.rounded-lg}
 
-5. Copy `ItemDrawer.cs` from `Basic/Editor` to `Game/Editor`
-6. Rename the namespace from `Basic` to **your chosen namespace**
+<!-- If you are working with a cloned `Basic` template, add `ItemDrawer` editor script for better experience
+
+1. Copy `ItemDrawer.cs` from `Basic/Editor` to `[YourGame]/Editor`
+2. Rename the namespace from `Basic` to **your chosen namespace** -->
