@@ -14,6 +14,15 @@ This guide uses the `Basic` template as an example.
 > - **Input System** package installed.
 > - **Input Actions** asset created.
 
+### 0. Check Input Settings
+
+Go to **Edit > Project Settings**, then navigate to **Player > Other Settings > Configuration**, and set **Active Input Handling** to Both.
+
+This is a temporary workaround until the project is fully migrated to the new **Input System**.
+
+If using this workaround isn’t a suitable option, feel free to contact me (on Discord) for guidance on making the asset work exclusively with the new **Input System**.
+
+![](/static/images/tutorials/input-settings.jpg){.rounded-lg}
 
 ### 1. Define Input Actions
 
