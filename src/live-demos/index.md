@@ -11,4 +11,6 @@ order: 100
 
 [-![Backpack](/static/images/demos/backpack.png)](backpack)
 
+[-![FPS-Survival](/static/images/demos/dayz.jpg)](dayz)
+
 [-![Unnamed Game](/static/images/demos/unnamed-game.png)](unnamed-game)
