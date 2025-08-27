@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.11.0.809616264659">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.11.0.809621095654">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.11.0">
@@ -33,11 +33,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=3.11.0.809616264659" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.11.0.809621095654" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.11.0.809616264659" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.11.0.809621095654" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.11.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.11.0.809616264659" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.11.0.809621095654" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -262,7 +262,7 @@ It also comes bundled with an abstract yet powerful <strong>item system</strong>
 <p>The <strong>Basic</strong> demo is a <em>Minecraft</em>-inspired inventory featuring the following:</p>
 <ul>
 <li>A <code v-pre>main inventory</code> window consisting of equipment, inventory and a consumables hot-bar</li>
-<li>A <code v-pre>vendor</code> window where you can buy pre-defined items and sell items from your inventory.</li>
+<li>A <code v-pre>shop</code> window where you can buy pre-defined items and sell items from your inventory.</li>
 <li>A <code v-pre>treasure chest</code> window, which has some items that you can pick but cannot place anything back. You can also pick all at once.</li>
 <li>A <code v-pre>crafting bench</code> window, which has slots for materials and an outcome slot. Placing materials in the correct order will populate the outcome slot. Picking the item from outcome slot will &quot;craft&quot; the item.</li>
 <li>A <code v-pre>stash</code> window, which is an inventory you can store items in.</li>
@@ -282,8 +282,22 @@ It also comes bundled with an abstract yet powerful <strong>item system</strong>
         <span>Installation</span>
     </h2>
 </doc-anchor-target>
-<p>You can install the package from Unity Package Manager.
-There are no external dependencies.</p>
+<p>You can install the package from Unity Package Manager.</p>
+<p>The package has one dependency - the <strong>New Input System</strong>.</p>
+<p>
+<div class="mb-6 px-5 py-4 flex justify-between relative border border-base-border hover:border-base-border-hover rounded transition-colors duration-150">
+    <div class="flex items-center text-base-500">
+        <span class="inline-block mb-px">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" role="presentation" fill="currentColor"><path fill="none" d="M0 0h24v24H0z"/><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z"/></svg>
+        </span>
+        <span class="inline-block font-medium ml-2">New Input System <span class="docs-emoji">✨</span></span>
+    </div>
+    <div class="flex items-center text-xs text-gray-400 dark:text-dark-400">
+        <span>../../guides/new-input-system/</span>
+    </div>
+    <a href="../../guides/new-input-system/" class="absolute block inset-0"></a>
+</div>
+</p>
 
                                 
                                 <!-- Required only on API pages -->
