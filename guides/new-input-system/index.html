@@ -10,21 +10,26 @@
     <meta name="generator" content="Retype 3.11.0">
 
     <!-- Primary Meta Tags -->
-    <title>FPS Survival</title>
-    <meta name="title" content="FPS Survival">
+    <title>New Input System</title>
+    <meta name="title" content="New Input System">
+    <meta name="description" content="The project has been fully migrated to the New Input System, it is now a dependency.">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://gamedevsimplified.github.io/docs/live-demos/fps-survival/">
+    <link rel="canonical" href="https://gamedevsimplified.github.io/docs/guides/new-input-system/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://gamedevsimplified.github.io/docs/live-demos/fps-survival/">
-    <meta property="og:title" content="FPS Survival">
+    <meta property="og:url" content="https://gamedevsimplified.github.io/docs/guides/new-input-system/">
+    <meta property="og:title" content="New Input System">
+    <meta property="og:description" content="The project has been fully migrated to the New Input System, it is now a dependency.">
+    <meta property="og:image" content="https://gamedevsimplified.github.io/docs/static/images/tutorials/new-input-step-1.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://gamedevsimplified.github.io/docs/live-demos/fps-survival/">
-    <meta property="twitter:title" content="FPS Survival">
+    <meta property="twitter:url" content="https://gamedevsimplified.github.io/docs/guides/new-input-system/">
+    <meta property="twitter:title" content="New Input System">
+    <meta property="twitter:description" content="The project has been fully migrated to the New Input System, it is now a dependency.">
+    <meta property="twitter:image" content="https://gamedevsimplified.github.io/docs/static/images/tutorials/new-input-step-1.jpg">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
@@ -33,6 +38,7 @@
     <script data-cfasync="false" src="../../resources/js/config.js?v=3.11.0.809616121056" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.11.0" data-turbo-eval="false" defer></script>
     <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.11.0.809616121056" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=3.11.0.809616121056" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -219,19 +225,122 @@
                                 <!-- Rendered if sidebar right is enabled -->
                                 <div id="retype-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
-<doc-anchor-target id="fps-survival" class="break-words">
+<doc-anchor-target id="new-input-system" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#fps-survival">#</doc-anchor-trigger>
-        <span>FPS Survival</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#new-input-system">#</doc-anchor-trigger>
+        <span>New Input System</span>
     </h1>
 </doc-anchor-target>
-<p>
-<figure>
-    <div class="relative w-full mb-6 overflow-hidden pt-9/16">
-        <iframe class="w-full h-full border-0 absolute inset-0" src="https://gamedevsimplified.github.io/live-demos/demos/dayz/index.html" allowfullscreen></iframe>
-    </div>
+<p>The project has been fully migrated to the <strong>New Input System</strong>, it is now a dependency.</p>
+<p>This is a step towards future-proofing the asset and eventual controller support.</p>
+<doc-anchor-target id="installation">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#installation">#</doc-anchor-trigger>
+        <span>Installation</span>
+    </h3>
+</doc-anchor-target>
+<p>When installing or updating the <strong>Inventory Framework</strong> asset, you will be prompted to install the <strong>Input System</strong> package.</p>
+<p><figure class="content-center">
+    <img src="../../static/images/tutorials/new-input-step-1.jpg" alt="" class="rounded-lg rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption"></figcaption>
 </figure>
 </p>
+<p>If you are using Unity 6, chances are the package is already installed and you can skip this step.</p>
+<p>If <strong>Input System</strong> is not installed, you can still skip and manually install the latest package version.</p>
+<p><figure class="content-center">
+    <img src="../../static/images/tutorials/new-input-step-1a.jpg" alt="" class="rounded-lg rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption"></figcaption>
+</figure>
+</p>
+<p>If you choose not to skip, right after it installs the dependency, the program will ask to restart itself to enable the new input backends.</p>
+<p><figure class="content-center">
+    <img src="../../static/images/tutorials/new-input-step-2.jpg" alt="" class="rounded-lg rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption"></figcaption>
+</figure>
+</p>
+<p>At this point, the <strong>Inventory Asset</strong> has not been yet imported and by choosing to restart you will have to start over with the installation/update process.</p>
+<p>Instead, you should choose not to restart and configure the input handling manually.</p>
+<p>Go to <strong>Edit &gt; Project Settings</strong>, then navigate to <strong>Player &gt; Other Settings &gt; Configuration</strong>, and set <strong>Active Input Handling</strong> to <em>Input System Package</em> or <em>Both</em>.</p>
+<p><figure class="content-center">
+    <img src="../../static/images/tutorials/input-settings.jpg" alt="" class="rounded-lg rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption"></figcaption>
+</figure>
+</p>
+<doc-anchor-target id="input-actions-asset">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#input-actions-asset">#</doc-anchor-trigger>
+        <span>Input Actions Asset</span>
+    </h3>
+</doc-anchor-target>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-primary"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-callout-primary" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+<p>This section uses the <code v-pre>Basic</code> template as an example.</p>
+        </div>
+    </div>
+</div>
+<p>Most demos include an <strong>Input Actions Asset</strong>.</p>
+<p>It comes with 2 action maps: Inventory and Player.</p>
+<p><figure class="content-center">
+    <img src="../../static/images/tutorials/input-actions-asset.jpg" alt="" class="rounded-lg rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption"></figcaption>
+</figure>
+</p>
+<p>As their names suggest, the mappings should be correctly assigned in the <strong>Player Input</strong> script, for <em>Inventory</em> and <em>Player</em> objects respectively.</p>
+<p>The chosen Behavior is <strong>Send Messages</strong> since it&#x27;s the easiest to setup. Feel free to use a Behavior that meets your needs.</p>
+<p><figure class="content-center">
+    <img src="../../static/images/tutorials/new-input-map-1.jpg" alt="" class="rounded-lg rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption"></figcaption>
+</figure>
+<figure class="content-center">
+    <img src="../../static/images/tutorials/new-input-map-2.jpg" alt="" class="rounded-lg rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption"></figcaption>
+</figure>
+</p>
+<doc-anchor-target id="inventory-input-script">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#inventory-input-script">#</doc-anchor-trigger>
+        <span>Inventory Input Script</span>
+    </h3>
+</doc-anchor-target>
+<p>The <strong>InventoryInput</strong> script defines methods for each action in the mapping.</p>
+<p>The methods publish <strong>events</strong> on the <strong>Store Bus</strong>. These <strong>events</strong> will be picked up and further processed by the <strong>Store</strong>.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<div class="codeblock-title">Demos/Basic/Scripts/InventoryInput.cs</div>
+<pre translate="no" class="language-csharp"><code v-pre class="language-csharp">public class InventoryInput : MonoBehaviour {
+
+    Action&lt;CustomEvent&gt; Publish = Store.Bus.Publish;
+
+    public void OnToggleCharacterSheet() =&gt; Publish(new ToggleCharacterSheet());
+    public void OnToggleInventory() =&gt; Publish(new ToggleInventory());
+    public void OnCloseInventory() =&gt; Publish(new CloseInventory());
+    public void OnHotbarUse1() =&gt; Publish(new HotbarUse(0));
+    public void OnHotbarUse2() =&gt; Publish(new HotbarUse(1));
+    public void OnHotbarUse3() =&gt; Publish(new HotbarUse(2));
+    public void OnHotbarUse4() =&gt; Publish(new HotbarUse(3));
+    public void OnHotbarUse5() =&gt; Publish(new HotbarUse(4));
+
+}</code></pre>
+</doc-codeblock></div>
+<p>The <strong>PlayerMovement</strong> script defines a method to store the movement <strong>InputValue</strong> in a local variable.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<div class="codeblock-title">Common/Scripts/PlayerMovement.cs</div>
+<pre translate="no" class="language-csharp"><code v-pre class="language-csharp">public class PlayerMovement : MonoBehaviour {
+    // ...
+    public void OnMove(InputValue value) =&gt; movement = value.Get&lt;Vector2&gt;();
+    // ...
+}</code></pre>
+</doc-codeblock></div>
 
                                 
                                 <!-- Required only on API pages -->
@@ -241,20 +350,20 @@
                             
                                 <nav id="retype-nextprev" class="print:hidden flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../live-demos/basic/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../guides/clone-template/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-base-text-muted">Previous</span>
-                                                <span class="block mt-1">Basic</span>
+                                                <span class="block mt-1">Clone a template</span>
                                             </span>
                                         </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../live-demos/starter-template/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../guides/use-new-input/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-base-text-muted">Next</span>
-                                                <span class="block mt-1">Starter Template</span>
+                                                <span class="block mt-1">Use New Input System</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -298,6 +407,6 @@
 
     <div id="retype-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "FPS Survival", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "New Input System", level: 2, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
 </body>
 </html>
