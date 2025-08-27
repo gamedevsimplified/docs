@@ -25,7 +25,7 @@ If you choose not to skip, right after it installs the dependency, the program w
 
 At this point, the **Inventory Asset** has not been yet imported and by choosing to restart you will have to start over with the installation/update process.
 
-Instead, you should choose not to restart and configure the input handling manually.
+Instead, you should choose not to restart and configure the input handling manually after importing.
 
 Go to **Edit > Project Settings**, then navigate to **Player > Other Settings > Configuration**, and set **Active Input Handling** to *Input System Package* or *Both*.
 
