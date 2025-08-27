@@ -1,7 +1,12 @@
 ---
-title: Manual Setup (Recommended)
+title: Manual Setup (Recommended) 🚧
 order: 900
 ---
+
+!!!warning
+🚧 This page is being updated to support the new package version
+!!!
+
 !!!
 This setup uses the `Basic` template as an example. If you're using a cloned template, apply the same steps to your version instead.
 !!!

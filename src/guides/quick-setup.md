@@ -1,7 +1,10 @@
 ---
-title: Quick Setup
+title: Quick Setup 🚧
 order: 1000
 ---
+!!!warning
+🚧 This page is being updated to support the new package version
+!!!
 !!!
 This setup uses the `Basic` template as an example.
 !!!

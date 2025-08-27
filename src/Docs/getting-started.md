@@ -27,7 +27,7 @@ The **Minimal** demo has the least amount of code needed to setup a working inve
 
 The **Basic** demo is a *Minecraft*-inspired inventory featuring the following:
 - A `main inventory` window consisting of equipment, inventory and a consumables hot-bar
-- A `vendor` window where you can buy pre-defined items and sell items from your inventory.
+- A `shop` window where you can buy pre-defined items and sell items from your inventory.
 - A `treasure chest` window, which has some items that you can pick but cannot place anything back. You can also pick all at once.
 - A `crafting bench` window, which has slots for materials and an outcome slot. Placing materials in the correct order will populate the outcome slot. Picking the item from outcome slot will "craft" the item.
 - A `stash` window, which is an inventory you can store items in.
@@ -42,4 +42,7 @@ The **Basic** demo is a *Minecraft*-inspired inventory featuring the following:
 ## Installation
 
 You can install the package from Unity Package Manager.
-There are no external dependencies.
+
+The package has one dependency - the **New Input System**.
+
+[!ref](/guides/new-input-system.md)

@@ -1,10 +1,17 @@
 ---
-order: 600
-title: Clone a template
+order: 850
+title: Clone a template 🚧
 ---
+
+!!!warning
+🚧 This page is being updated to support the new package version
 !!!
+
+
+!!!info
 This is a manual process at the moment but will be automated in a future update.
 !!!
+
 !!!
 We'll be cloning `Basic` template in this example and naming it `MyGame`.
 !!!

@@ -1,6 +1,6 @@
 ---
-order: 500
-title: New Input System
+order: 890
+title: New Input System ✨
 --- 
 
 The project has been fully migrated to the **New Input System**, it is now a dependency. 
@@ -19,15 +19,15 @@ If **Input System** is not installed, you can still skip and manually install th
 
 ![](/static/images/tutorials/new-input-step-1a.jpg){.rounded-lg}
 
-If you choose not to skip, right after it installs the dependency, the program will ask to restart itself to enable the new input backends. 
+If you don’t skip, Unity will prompt you to restart as soon as the dependency is installed to enable the new input backends.
 
 ![](/static/images/tutorials/new-input-step-2.jpg){.rounded-lg}
 
-At this point, the **Inventory Asset** has not been yet imported and by choosing to restart you will have to start over with the installation/update process.
+At this point, the **Inventory Framework** has not yet been imported. Restarting here will force you to start the installation/update process over again.
 
-Instead, you should choose not to restart and configure the input handling manually after importing.
+Instead, you should choose not to restart, finish the **import** step, then configure the input handling manually.
 
-Go to **Edit > Project Settings**, then navigate to **Player > Other Settings > Configuration**, and set **Active Input Handling** to *Input System Package* or *Both*.
+Go to **Edit > Project Settings**, then navigate to **Player > Other Settings > Configuration**, and set **Active Input Handling** to *Input System Package (New)* or *Both*.
 
 ![](/static/images/tutorials/input-settings.jpg){.rounded-lg}
 
@@ -46,7 +46,7 @@ It comes with 2 action maps: Inventory and Player.
 
 As their names suggest, the mappings should be correctly assigned in the **Player Input** script, for *Inventory* and *Player* objects respectively.
 
-The chosen Behavior is **Send Messages** since it's the easiest to setup. Feel free to use a Behavior that meets your needs.
+The chosen Behavior is **Send Messages** since it's the easiest to setup. Feel free to use a Behavior that suits your needs.
 
 ![](/static/images/tutorials/new-input-map-1.jpg){.rounded-lg}
 ![](/static/images/tutorials/new-input-map-2.jpg){.rounded-lg}

@@ -1,7 +1,11 @@
 ---
 order: 500
-title: Use New Input System
+title: Use New Input System 🚧
 --- 
+
+!!!warning
+🚧 This page is being deprecated
+!!!
 
 This guide walks you through integrating the **Inventory** asset with Unity's **New Input System**.
 
