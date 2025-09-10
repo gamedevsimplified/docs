@@ -1,1 +1,1 @@
-[!embed](https://gamedevsimplified.github.io/live-demos/demos/arpg/index.html)
+[!embed](https://gamedevsimplified.github.io/live-demos/demos/arpg2/index.html)
