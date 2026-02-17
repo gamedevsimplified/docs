@@ -1,9 +1,108 @@
 ---
-order: "900"
-title: Core Concepts
+order: 900
+title: Architecture Overview 🚧
 ---
 
-The framework is built around several key concepts that define its structure and behavior. Understanding these will help you make the most of its features.
+{{ include "snippets/wip" }}
+
+The framework follows a **data-driven**, **event-based architecture**. It keeps data, logic, and UI separate.
+
+Inventories can get complex very quickly — stacking, moving, crafting, containers, world drops, sounds, etc.
+
+To keep things manageable and extensible, the system is divided into clear responsibilities.
+
+- **Bags** → hold data
+- **Stores** → define rules
+- **Views** → render UI
+- **Manipulators** → add UI Interaction Behaviors
+- **Controllers** → wire everything together
+- **Event bus** → connects these pieces without tightly coupling them.
+
+### Bag
+
+Bags are pure data containers. Think of a Bag as the state of an inventory — nothing more.
+
+A Bag stores items, does not contain UI logic but can define some gameplay rules. For example a bag can be configured to be remove only or accept only a certain type of items.
+
+Because Bags are UI-agnostic, they can be reused across different interfaces or even outside UI contexts (e.g., crafting systems, world storage, containers inside items).
+
+Examples: Equipment, Shop, Crafting Bench
+
+
+### Item
+
+Items are based on ScriptableObject definitions (ItemBase) with runtime instances (Item).
+
+Items describe what something is, not how it behaves in the UI.
+
+This allows:
+- Easy editor configuration
+- Reusable item definitions
+- Custom item types (e.g., container items)
+
+### Store
+
+Stores contain the logic of the system.
+
+A Store:
+
+- Listens to events (e.g., Pick, Place, Drop)
+- Applies validation rules
+- Updates Bags
+- Publishes result events
+
+For example, a Store decides whether an item can be moved, whether stacks can merge, what happens when an item is dropped into the world.
+
+Stores define what is allowed, but they do not render anything. This makes behavior easy to customize — you can swap or extend Stores without changing Views.
+
+### Manipulator
+
+Manipulators are small, reusable interaction components attached to the root visual element. They are responsible for translating user input into high-level intent.
+
+For example, Manipulators enable behaviors such as:
+- Drag and drop
+- Tooltips
+- Item rotation
+- Right-click / double-click actions
+- Slot highlighting
+
+A Manipulator typically:
+- Listens to pointer or keyboard events.
+- Applies activation rules (e.g., modifier keys, mouse buttons).
+- Publishes an event to the event bus.
+
+Importantly, Manipulators do not modify Bags directly. They only interpret input and emit intent.
+
+### Controller
+
+Controllers do not define gameplay rules. They simply connect the parts of the system together.
+
+They:
+
+- Create or reference Bags
+- Inject Bags into Stores
+- Bind Bags to Views
+- Attach behavior in form of Manipulators
+
+### Event Bus
+
+The event bus allows systems to communicate without direct references.
+
+For example:
+
+- A Manipulator publishes a "Pick" event.
+- The Store reacts and updates a Bag.
+- The View re-renders automatically.
+- A sound system listens and plays an effect.
+
+Because everything communicates through events:
+- Features can be added without modifying core systems.
+- Sound, VFX, and world spawning remain optional.
+- The framework stays modular and extensible.
+
+
+
+<!-- The framework is built around several key concepts that define its structure and behavior. Understanding these will help you make the most of its features.
 
 ### Item
 
@@ -124,4 +223,4 @@ this.Add("root-layer")
 	.WithGhostItemBehavior<BasicItemView>(Store.Instance.DraggedItem)
 	.WithItemTooltipBehavior<Tooltip>();
 
-```
+``` -->

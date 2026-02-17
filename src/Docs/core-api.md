@@ -5,132 +5,51 @@ title: Core API 🚧
 
 {{ include "snippets/wip" }}
 
-## Bag
+### Bag (Base Class)
 
-> use `BagExt` static class if function is not an extension method
+Bag is the abstract base class for all inventory containers.
 
-### AddItems
+It defines the common contract for storing, validating, and manipulating Item instances.
 
-Adds Items to a Bag.
+Concrete implementations (e.g., ListBag, GridBag, CraftingBench) provide the actual behavior.
 
-```cs
-public static Result AddItems(this Bag bag, params Item[] items);
-```
+The base implementation intentionally does very little — most methods return Result.Fail by default.
 
-### PickItem
+Derived classes are expected to override the relevant methods.
 
-Picks an Item from a Bag.
+<!-- 
+public string Name;
 
-```cs
-public static Result PickItem(PickItem e);
-public static Result PickItem(this Bag bag, Slot slot, EventModifiers mods = EventModifiers.None);
-```
+public virtual IEnumerable<Item> Items { get => Enumerable.Empty<Item>(); }
 
-### PlaceItem
+public virtual Result CanAdd(Item item) => Result.Success;
 
-Places an Item in a Bag.
+public virtual Result CanRemove(Item item) => Result.Success;
 
-```cs
-public static Result PlaceItem(PlaceItem e);
-public static Result PlaceItem(this Bag bag, Slot slot, Item item, EventModifiers mods = EventModifiers.None);
-```
+public virtual Result Add(Item item) => Result.Fail;
 
-### MoveItem
+public virtual Result AddAt(Slot slot, Item item) => Result.Fail;
 
-Moves Items from a Bag to another target Bag.
+public virtual Result AddRange(IEnumerable<Item> items) => Result.Fail;
 
-```cs
-public static Result MoveItem(PickItem e, Bag toBag);
-public static Result MoveItem(this Bag bag, Slot slot, Bag toBag);
-```
+public virtual Result Remove(Item item) => Result.Fail;
 
-### PickOrMoveItem
+public virtual Result TransferAll(Item fromItem, Slot toSlot, Item toItem) => Result.Fail;
 
-Picks an item from the source bag, or moves it to the target bag if Ctrl is held.
+public virtual Result TransferOne(Item fromItem, Slot toSlot, Item toItem) => Result.Fail;
 
-Returns a failed result if moving but no target bag is provided.
-
-```cs
-public static Result PickOrMoveItem(PickItem e, Bag toBag)
-```
-
----
-## ItemBase
-
-### Create
-
-Creates an `Item` from an `ItemBase`
-
-```cs
-public static Item Create(this ItemBase itemBase)
-```
-
----
-## Item
-
-### Clone
-Clones an Item and returns it.
-```cs
-public static Item Clone(this Item item)
-```
-
-### Size
-Returns Item Size if it's a ShapeItem or a 1x1 
-```cs
-public static Size Size(this Item item)
-```
-
-### SetQuant
-Creates a new Item with the specified quantity.
-```cs
-public static Item SetQuant(this Item item, int quant)
-```
-### Decrement
-Creates a new item with quantity decreased by 1.
-```cs
-public static Item Decrement(this Item item)
-```
-### StackAll
-Moves all quantity from source item to target item.
-```cs
-public static (Item from, Item to) StackAll(Item fromItem, Item toItem)
-```
-### StackOne
-Decrements source Item quantity and increments target Item quantity.
-```cs
-public static (Item from, Item to) StackOne(Item fromItem, Item toItem)
-```
-### UnstackHalf
-Splits a stack in half.
-```cs
-public static (Item from, Item to) UnstackHalf(Item fromItem)
-```
-### CanStack
-Checks if an Item can be stacked onto another Item.
-```cs
-public static bool CanStack(this Item fromItem, Item toItem)
-```
-
----
-## Slot
-
-### IsEmpty
-
-Returns true if Slot is empty.
-```cs
-public static bool IsEmpty(this Slot slot)
-```
-### IsFull
-
-Returns true if Slot is not empty.
-```cs
-public static bool IsFull(this Slot slot)
-```
-### Clear
-
-Returns a new empty Slot.
-```cs
-public static T Clear<T>(this T slot) where T : Slot
-```
+public virtual Result SplitHalf(Item item) => Result.Fail;
 
 
+
+public virtual void Reset() { }
+
+public virtual void Init() { }
+
+public virtual void Clear() { }
+
+public virtual bool Accepts(Item item) => true;
+
+public virtual bool AllowStacking() => true;
+
+public virtual Slot FindSlot(Item item) => null; -->

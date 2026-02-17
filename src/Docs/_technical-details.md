@@ -1,8 +1,11 @@
 ---
-order: "800"
-title: Technical Details
+order: 800
+title: Technical Details 🚧
 ---
 
+{{ include "snippets/wip" }}
+
+<!--
 ## Functional programming
 
 The framework takes a **functional programming approach**, emphasizing simplicity and separation of concerns. It uses the a common "good" practice of *Composition* over *Inheritance* and not so common convention of *Rules* over *Conditions* (pattern matching).
@@ -64,7 +67,7 @@ The framework leverages **UI Toolkit** for rendering inventory views. It provide
 Since UI Toolkit is heavily based on web technologies, the framework proposes web-inspired nomenclature, such as:
    - [**DOM**](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model): Utility functions for managing elements.
    - [**DIV**](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div): A shorthand alias for `VisualElement`.
-
+-->
 
 <!-- ## How it works
 
