@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.12.0.824660404463">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.12.0.824802311716">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.12.0">
@@ -22,20 +22,22 @@
     <meta property="og:url" content="https://gamedevsimplified.github.io/docs/docs/troubleshooting/">
     <meta property="og:title" content="Troubleshooting 🚧">
     <meta property="og:description" content="Join the Discord server for additional support from the developer and the community.">
+    <meta property="og:image" content="https://gamedevsimplified.github.io/docs/static/images/troubleshoot-ui-builder.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://gamedevsimplified.github.io/docs/docs/troubleshooting/">
     <meta property="twitter:title" content="Troubleshooting 🚧">
     <meta property="twitter:description" content="Join the Discord server for additional support from the developer and the community.">
+    <meta property="twitter:image" content="https://gamedevsimplified.github.io/docs/static/images/troubleshoot-ui-builder.jpg">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=3.12.0.824660404463" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.12.0.824802311716" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.12.0.824660404463" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.12.0.824802311716" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.12.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.12.0.824660404463" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.12.0.824802311716" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -226,6 +228,43 @@
     </h3>
 </doc-anchor-target>
 <p>Join the <a href="https://discord.com/invite/MFgMX6Fn4m"><strong>Discord server</strong></a> for additional support from the developer and the community.</p>
+<doc-anchor-target id="document-doesnt-look-right-in-ui-builder">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#document-doesnt-look-right-in-ui-builder">#</doc-anchor-trigger>
+        <span>Document doesn&#x27;t look right in UI Builder</span>
+    </h3>
+</doc-anchor-target>
+<p>If you open a document in UI Builder and it looks like it doesn&#x27;t have the right styling, make sure to select the right <strong>theme</strong> from the <strong>dropdown</strong>.</p>
+<p>Each demo comes with its own theme, grid examples use <strong>GDS Grid</strong>, and the rest - <strong>GDS Default</strong>.</p>
+<p><figure class="content-center">
+    <img src="../../static/images/troubleshoot-ui-builder.jpg" alt="" class="rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption"></figcaption>
+</figure>
+</p>
+<p>In rare cases, themes may become corrupted during import. This is usually caused by an invalid asset path or GUID mismatch. If this occurs, please contact the developer for assistance.</p>
+<doc-anchor-target id="objects-in-the-scene-do-not-react-to-pointer">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#objects-in-the-scene-do-not-react-to-pointer">#</doc-anchor-trigger>
+        <span>Objects in the scene do not react to pointer</span>
+    </h3>
+</doc-anchor-target>
+<ul>
+<li>Add <code translate="no" v-pre>Physics Raycaster</code> component to main camera.</li>
+<li>Add <code translate="no" v-pre>EventSystem</code> component to scene hierarchy.</li>
+<li>Make sure the UI Document is not blocking input. Try setting the blocking element&#x27;s <strong>PickingMode</strong> to <strong>Ignore</strong>.</li>
+</ul>
+<p><figure class="content-center">
+    <img src="../../static/images/troubleshoot-picking-mode.jpg" alt="" class="rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption"></figcaption>
+</figure>
+</p>
+<doc-anchor-target id="bag-doesnt-show-up-in-the-inspector">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#bag-doesnt-show-up-in-the-inspector">#</doc-anchor-trigger>
+        <span>Bag doesn&#x27;t show up in the inspector</span>
+    </h3>
+</doc-anchor-target>
+<p>Make sure the class is marked as <strong>Serializable</strong>.</p>
 
                                 
                                 <!-- Required only on API pages -->
