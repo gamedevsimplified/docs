@@ -1,21 +1,29 @@
 ---
-order: 750
-title: Core API 🚧
+order: 990
+title: ListBag 🚧
 ---
 
-{{ include "snippets/wip" }}
 
-### Bag (Base Class)
+### Events
 
-Bag is the abstract base class for all inventory containers.
+#### ItemChanged
+```cs
+public event Action<ListSlot> ItemChanged;
+```
 
-It defines the common contract for storing, validating, and manipulating Item instances.
+#### CollectionChanged
+```cs
+public event Action CollectionChanged;
+```
 
-Concrete implementations (e.g., ListBag, GridBag, CraftingBench) provide the actual behavior.
+#### CollectionReset
+```cs
+public event Action CollectionReset;
+```
 
-The base implementation intentionally does very little — most methods return Result.Fail by default.
 
-Derived classes are expected to override the relevant methods.
+
+
 
 <!-- 
 public string Name;
@@ -26,9 +34,7 @@ public virtual Result CanAdd(Item item) => Result.Success;
 
 public virtual Result CanRemove(Item item) => Result.Success;
 
-public virtual Result Add(Item item) => Result.Fail;
 
-public virtual Result AddAt(Slot slot, Item item) => Result.Fail;
 
 public virtual Result AddRange(IEnumerable<Item> items) => Result.Fail;
 
