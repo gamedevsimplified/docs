@@ -18,20 +18,3 @@ Built on **UI Toolkit**, it offers advanced styling and layout capabilities whil
 It also comes bundled with an abstract yet powerful **item system** that minimizes setup while supporting diverse use cases.
 
 This package is targeted at **programmers** but can be used by non programmers. **Some coding is still required** to implement custom functionality.
-
-✔️ Features
-
-- Drag and drop
-- Ctrl+Click to Move
-- Buy/Sell/Drop/Destroy
-- Equipment
-- Hotbar
-- Crafting
-- Shop
-- Chests
-- Item Rarity
-- Tooltip
-- Character Sheet
-- Item cost
-- Sounds 
-- Save/Load Player Data

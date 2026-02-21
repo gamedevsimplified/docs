@@ -1,16 +1,36 @@
 ---
 order: 1000
-title: Getting Started 🚧
+title: Getting Started
 ---
 
-## Introduction
+The best way to get started is by exploring the demos and examples. 
 
-The purpose of this package is to provide a versatile and extensible solution for creating inventories in Unity. Its design allows developers to quickly set up functional inventories while offering the flexibility to adapt to custom use cases. The framework supports a variety of inventory types, making it suitable for a wide range of games. 
+Examples are isolated implementations of various use-cases. The idea is to separate the solution to a problem from all the potential noise. Examples are broken down by complexity into **basic**, **intermediate**, **advanced** (and **grid**, in `PRO` version), ranging from the **simplest list inventory** to **container items** and **crafting benches**. More examples will be added over time.
 
-The predefined inventory types are:
-   - **List**: A collection of items arranged as a list or a grid.
-   - **Set**: Equipment type inventory with named slots.
-   - **Grid** (PRO): Supports items of varying sizes.
+### Example structure
 
-Built on [UI Toolkit](https://docs.unity3d.com/Manual/UIElements.html), it offers advanced styling and layout capabilities while avoiding the overhead of `GameObjects` and `Prefabs`. 
-It also comes bundled with an abstract yet powerful **item system** that minimizes setup while supporting diverse use cases.
+A typical example consists of a: 
+- Scene
+- UI Document
+- Controller
+- Store
+
+![Minimal Example](/static/images/minimal-example.jpg)
+
+Files are prefixed with the example name to prevent naming conflicts and to keep the examples self-container. This structure also makes it easier to copy an example into your own project and adapt it incrementally.
+
+Some examples introduce custom behavior by extending the **Store**. For instance, splitting a stack or moving an item, are typically implemented inside a custom, reusable **Store**. You can read more about this in [Architecture Overview](/docs/architecture-overview).
+
+### How to use
+
+The recommended approach is to build your functionality by composing and extending existing pieces rather than modifying the framework code directly. Avoid editing demo code in place as updates to the package may overwrite your changes. Instead, treat the provided implementations as references and starting points.
+
+Start by scaffolding your item system. Identify what is fixed (shared properties) and what differentiates items (stats, behaviors, categories). Create new **Items** and **ItemBases** for each meaningful item type. This allows you to define rule-based logic, like showing different tooltips for weapons versus armor, or preventing certain item types from being placed into specific equipment slots.
+
+Next, identify which type of inventories your game should support - player inventory, stash, equipment, shop, crafting interface, etc. Create distinct types for each sufficiently different screen. This separation enables rule-driven behavior based on context: where an item originates, where it is placed, and what actions are permitted between those contexts.
+
+For basic interactions, reuse an existing Store implementation. When your design requires new rules or workflows, create a custom Store derived from an example.
+
+Introduce new Event types when necessary. For example, the Basic demo adds a custom event triggered after a successful crafting operation. That event is then consumed by a separate SFX controller to play a "crafting" audio clip. 
+
+Finally, create your **UI Document** and **Controller**, wire them together with your **Store**, and start with simple interactions between inventories. Add UI toggles, feedback, and additional views gradually. Iterate.
