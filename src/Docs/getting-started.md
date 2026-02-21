@@ -7,6 +7,9 @@ The best way to get started is by exploring the demos and examples.
 
 Examples are isolated implementations of various use-cases. The idea is to separate the solution to a problem from all the potential noise. Examples are broken down by complexity into **basic**, **intermediate**, **advanced** (and **grid**, in `PRO` version), ranging from the **simplest list inventory** to **container items** and **crafting benches**. More examples will be added over time.
 
+![Examples List](/static/images/examples-list.jpg)
+
+
 ### Example structure
 
 A typical example consists of a: 
