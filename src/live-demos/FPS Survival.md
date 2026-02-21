@@ -1,1 +1,1 @@
-[!embed](https://gamedevsimplified.github.io/live-demos/demos/dayz2/index.html)
+[!embed](https://gamedevsimplified.github.io/live-demos/demos/dayz-new-lto/index.html)

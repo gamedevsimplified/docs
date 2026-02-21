@@ -1,1 +1,1 @@
-[!embed](https://gamedevsimplified.github.io/live-demos/demos/basic2/index.html)
+[!embed](https://gamedevsimplified.github.io/live-demos/demos/basic-new-lto/index.html)
