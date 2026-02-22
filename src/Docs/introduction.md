@@ -46,3 +46,13 @@ Features and mechanics like these are deceptively complex. Supporting rotation, 
 That being said, **UGUI** is still a *thing* and support for it is on the [roadmap](/docs/roadmap)!
 
 ![UI Builder](/static/images/ui-builder.jpg)
+
+<hr>
+
+!!!
+If you are new to UI Toolkit, use these introductory videos to get you started.
+!!!
+
+https://www.youtube.com/watch?v=6DcwHPxCE54
+https://www.youtube.com/watch?v=0mYtI21Fmg4&list=PLgCVPIIZ3xL_FVLhDrC3atsy8CiZzAMh6
+https://www.youtube.com/watch?v=c-K5KmQW-Zk
