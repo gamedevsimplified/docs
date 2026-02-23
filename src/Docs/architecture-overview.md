@@ -5,7 +5,42 @@ title: Architecture Overview 🚧
 
 {{ include "snippets/wip" }}
 
-The framework follows a **data-driven**, **event-based architecture**. It keeps data, logic, and UI separate.
+The framework follows a **data-driven**, **event-based** architecture. It keeps the data, logic and UI separate.
+
+Here's a bottom-up bird's-eye view of the architecture:
+- **Items** are defined as `Scriptable Objects`.
+- **Items** are stored in collections called **Bags** (List, Set, Grid). 
+- **Bags** are collections of slots with rules defining what items can be stored and how. 
+- **Bags** are typically defined in **Controllers**. 
+- **Controllers** are `MonoBehaviors`. 
+- **Controllers** query the [**UI Document**](https://docs.unity3d.com/6000.3/Documentation/Manual/UIE-create-ui-document-component.html) for **Bag Views**, initialize them and attach [**Manipulators**](https://docs.unity3d.com/6000.3/Documentation/Manual/UIE-manipulators.html).
+- **Manipulators** implement behaviors (drag-and-drop, tooltip). 
+- **Manipulators** react to user input and publish events on the **Event Bus**. 
+- The **Event Bus** is a one-way messaging mechanism that decouples  UI from logic and data. 
+- The **Event Bus** is declared in the **Store**. 
+- The **Store** is a `Scriptable Object`.
+- The **Store** is the sole authority over data mutation. 
+- The **Store** behaves like a Singleton (it *was* a **Singleton** in **v1**). 
+- The **Store** processes events and updates the **Bags** (either passed as event parameters or from its own context). 
+- **Bags** notify any *subscribers* of data change (typically **Bag Views**). 
+- **Bag Views** update themselves in response to data changes. 
+- **Scripts** other than the **Store**, can listen to events on the **Event Bus** and trigger their own behavior (play sounds, spawn objects).
+
+The system follows a unidirectional flow: user input generates events, the Store processes them, state updates, and views react to changes:
+
+```
+UI → Manipulator → EventBus → Store → Bag → BagView
+```
+
+To sum up here are the major components and their responsibilities:
+- **Bags** → hold data
+- **Stores** → define rules and mutate data
+- **Views** → render UI
+- **Manipulators** → add UI Interaction Behaviors
+- **Controllers** → wire everything together
+
+
+<!-- The framework follows a **data-driven**, **event-based architecture**. It keeps data, logic, and UI separate.
 
 Inventories can get complex very quickly — stacking, moving, crafting, containers, world drops, sounds, etc.
 
@@ -16,7 +51,9 @@ To keep things manageable and extensible, the system is divided into clear respo
 - **Views** → render UI
 - **Manipulators** → add UI Interaction Behaviors
 - **Controllers** → wire everything together
-- **Event bus** → connects these pieces without tightly coupling them.
+- **Event bus** → connects these pieces without tightly coupling them. -->
+
+<hr>
 
 ### Bag
 
