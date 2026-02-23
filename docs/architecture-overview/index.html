@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.12.0.825103344113">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="3.12.0.825170224789">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 3.12.0">
@@ -12,7 +12,7 @@
     <!-- Primary Meta Tags -->
     <title>Architecture Overview &#128679;</title>
     <meta name="title" content="Architecture Overview 🚧">
-    <meta name="description" content="The framework follows a data-driven, event-based architecture. It keeps data, logic, and UI separate.">
+    <meta name="description" content="The framework follows a data-driven, event-based architecture. It keeps the data, logic and UI separate.">
 
     <!-- Canonical -->
     <link rel="canonical" href="https://gamedevsimplified.github.io/docs/docs/architecture-overview/">
@@ -21,21 +21,21 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://gamedevsimplified.github.io/docs/docs/architecture-overview/">
     <meta property="og:title" content="Architecture Overview 🚧">
-    <meta property="og:description" content="The framework follows a data-driven, event-based architecture. It keeps data, logic, and UI separate.">
+    <meta property="og:description" content="The framework follows a data-driven, event-based architecture. It keeps the data, logic and UI separate.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://gamedevsimplified.github.io/docs/docs/architecture-overview/">
     <meta property="twitter:title" content="Architecture Overview 🚧">
-    <meta property="twitter:description" content="The framework follows a data-driven, event-based architecture. It keeps data, logic, and UI separate.">
+    <meta property="twitter:description" content="The framework follows a data-driven, event-based architecture. It keeps the data, logic and UI separate.">
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=3.12.0.825103344113" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=3.12.0.825170224789" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=3.12.0.825103344113" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=3.12.0.825170224789" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=3.12.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.12.0.825103344113" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=3.12.0.825170224789" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -219,17 +219,52 @@
         </div>
     </div>
 </div>
-<p>The framework follows a <strong>data-driven</strong>, <strong>event-based architecture</strong>. It keeps data, logic, and UI separate.</p>
-<p>Inventories can get complex very quickly — stacking, moving, crafting, containers, world drops, sounds, etc.</p>
-<p>To keep things manageable and extensible, the system is divided into clear responsibilities.</p>
+<p>The framework follows a <strong>data-driven</strong>, <strong>event-based</strong> architecture. It keeps the data, logic and UI separate.</p>
+<p>Here&#x27;s a bottom-up bird&#x27;s-eye view of the architecture:</p>
+<ul>
+<li><strong>Items</strong> are defined as <code translate="no" v-pre>Scriptable Objects</code>.</li>
+<li><strong>Items</strong> are stored in collections called <strong>Bags</strong> (List, Set, Grid).</li>
+<li><strong>Bags</strong> are collections of slots with rules defining what items can be stored and how.</li>
+<li><strong>Bags</strong> are typically defined in <strong>Controllers</strong>.</li>
+<li><strong>Controllers</strong> are <code translate="no" v-pre>MonoBehaviors</code>.</li>
+<li><strong>Controllers</strong> query the <a href="https://docs.unity3d.com/6000.3/Documentation/Manual/UIE-create-ui-document-component.html"><strong>UI Document</strong></a> for <strong>Bag Views</strong>, initialize them and attach <a href="https://docs.unity3d.com/6000.3/Documentation/Manual/UIE-manipulators.html"><strong>Manipulators</strong></a>.</li>
+<li><strong>Manipulators</strong> implement behaviors (drag-and-drop, tooltip).</li>
+<li><strong>Manipulators</strong> react to user input and publish events on the <strong>Event Bus</strong>.</li>
+<li>The <strong>Event Bus</strong> is a one-way messaging mechanism that decouples  UI from logic and data.</li>
+<li>The <strong>Event Bus</strong> is declared in the <strong>Store</strong>.</li>
+<li>The <strong>Store</strong> is a <code translate="no" v-pre>Scriptable Object</code>.</li>
+<li>The <strong>Store</strong> is the sole authority over data mutation.</li>
+<li>The <strong>Store</strong> behaves like a Singleton (it <em>was</em> a <strong>Singleton</strong> in <strong>v1</strong>).</li>
+<li>The <strong>Store</strong> processes events and updates the <strong>Bags</strong> (either passed as event parameters or from its own context).</li>
+<li><strong>Bags</strong> notify any <em>subscribers</em> of data change (typically <strong>Bag Views</strong>).</li>
+<li><strong>Bag Views</strong> update themselves in response to data changes.</li>
+<li><strong>Scripts</strong> other than the <strong>Store</strong>, can listen to events on the <strong>Event Bus</strong> and trigger their own behavior (play sounds, spawn objects).</li>
+</ul>
+<p>The system follows a unidirectional flow: user input generates events, the Store processes them, state updates, and views react to changes:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre translate="no" class="language-none"><code v-pre class="language-none">UI → Manipulator → EventBus → Store → Bag → BagView</code></pre>
+</doc-codeblock></div>
+<p>To sum up here are the major components and their responsibilities:</p>
 <ul>
 <li><strong>Bags</strong> → hold data</li>
-<li><strong>Stores</strong> → define rules</li>
+<li><strong>Stores</strong> → define rules and mutate data</li>
 <li><strong>Views</strong> → render UI</li>
 <li><strong>Manipulators</strong> → add UI Interaction Behaviors</li>
 <li><strong>Controllers</strong> → wire everything together</li>
-<li><strong>Event bus</strong> → connects these pieces without tightly coupling them.</li>
 </ul>
+<!-- The framework follows a **data-driven**, **event-based architecture**. It keeps data, logic, and UI separate.
+
+Inventories can get complex very quickly — stacking, moving, crafting, containers, world drops, sounds, etc.
+
+To keep things manageable and extensible, the system is divided into clear responsibilities.
+
+- **Bags** → hold data
+- **Stores** → define rules
+- **Views** → render UI
+- **Manipulators** → add UI Interaction Behaviors
+- **Controllers** → wire everything together
+- **Event bus** → connects these pieces without tightly coupling them. -->
+<hr>
 <doc-anchor-target id="bag">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#bag">#</doc-anchor-trigger>
