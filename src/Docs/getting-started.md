@@ -9,7 +9,6 @@ Examples are isolated implementations of various use-cases. The idea is to separ
 
 ![Examples List](/static/images/examples-list.jpg)
 
-
 ### Example structure
 
 A typical example consists of a: 
@@ -37,3 +36,9 @@ For basic interactions, reuse an existing Store implementation. When your design
 Introduce new Event types when necessary. For example, the Basic demo adds a custom event triggered after a successful crafting operation. That event is then consumed by a separate SFX controller to play a "crafting" audio clip. 
 
 Finally, create your **UI Document** and **Controller**, wire them together with your **Store**, and start with simple interactions between inventories. Add UI toggles, feedback, and additional views gradually. Iterate.
+
+### Guides
+
+To get started, check this guided timelapse of creating a simple inventory.
+
+https://youtu.be/tTcWTMPTDAM
