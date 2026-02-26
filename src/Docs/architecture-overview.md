@@ -122,9 +122,9 @@ Create as granular a hierarchy as your game requires. A useful rule of thumb: if
 Example hierarchy from the **Basic Demo**:
 
 - Item 
-	- BasicItem
-		- BasicWeapon
-		- BasicArmor
+	- BasicItem (weight, cost, rarity)
+		- BasicWeapon (damage)
+		- BasicArmor (defense)
 
 ### Tag
 
