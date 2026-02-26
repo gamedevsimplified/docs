@@ -5,6 +5,8 @@ title: Architecture Overview 🚧
 
 {{ include "snippets/wip" }}
 
+### Overview
+
 The framework follows a **data-driven**, **event-based** architecture. It keeps the data, logic and UI separate.
 
 Here's a bottom-up bird's-eye view of the architecture:
@@ -55,6 +57,81 @@ To keep things manageable and extensible, the system is divided into clear respo
 
 <hr>
 
+### Item System
+
+Item systems in games vary significantly in scope and complexity. Some games feature complex systems with multiple item categories (weapons, armor, consumables), subtypes, rarity tiers, affixes, requirements, etc. Other games use colored shapes and nothing else.
+
+To allow such variety, the item system was designed to be as **abstract** and as **extensible** as possible.
+
+At a minimum, an item defines:
+- an icon
+- whether it is stackable
+- maximum stack size 
+- current stack size 
+
+Items in games typically consist of a **fixed** part and a **dynamic** part. For example, in *Path of Exile* a body armor has a [base](https://www.poewiki.net/wiki/War_Plate) that defines immutable properties (icon, armor range, attribute requirements), while instance-specific values include the actual armor roll, rarity and affixes. In contrast, in *Backpack Battles*, [items](https://backpackbattles.wiki.gg/wiki/Leather_Armor) are entirely static except for their orientation within the inventory.
+
+This structural separation is known as the [Flyweight pattern](https://www.geeksforgeeks.org/system-design/flyweight-design-pattern/): shared immutable data is stored once, while instance-specific state is stored separately.
+
+In our case, the fixed part of the **Item** is a type called **ItemBase**, which consist of the icon, the stackable flag and maximum stack size. The **Item** itself stores the current stack size.
+
+!!!question What if you're already using another item system?
+You can bridge an existing item system with Inventory Framework. A guide for that will be added soon.
+In the meantime, reach out on Discord.
+!!!
+
+### ItemBase
+
+**ItemBase** is implemented as a **ScriptableObject**. It describes what an item is, and not how it bahaves.
+
+Each **ItemBase** has a factory method responsible for creating and initializing an **Item** instance of the associated type.
+
+For example, in the **Basic Demo**, the Axe **ItemBase** has a fixed attack damage range. Upon instantiation, the Axe instance will roll attack damage from its base attack range and store in `AttackDamage` property.
+
+```cs
+public class Basic_WeaponBase : Basic_ItemBase { /* ... */	
+	public IntRange DamageRange;
+	public override Item CreateItem() => new Basic_Weapon { /* ... */		
+		AttackDamage = DamageRange.Roll() 
+	};
+}
+```
+
+To extend the functionality of an **Item**, extend the **ItemBase** and override the factory method.
+For example, all items in the Basic demo have a fixed `Weight` and `Cost`, but variable `Rarity`:
+
+```cs
+    [CreateAssetMenu(menuName = "SO/Demos/Basic/Basic_ItemBase")]
+    public class Basic_ItemBase : ItemBase {
+        public int Weight = 1;
+        public int Cost = 1;
+        public override Item CreateItem() => new Basic_Item {/*...*/}  
+
+    [System.Serializable]
+    public class Basic_Item : Item {
+        public Rarity Rarity;
+    }
+```
+
+!!!info Annotate your Item types with System.Serializable.
+This ensures they are visible in the Unity Editor and persist correctly between scene reloads.
+!!!
+
+Create as granular a hierarchy as your game requires. A useful rule of thumb: if certain properties only apply to a subset of items, consider introducing a more specific type.
+
+Example hierarchy from the **Basic Demo**:
+
+- Item 
+	- BasicItem
+		- BasicWeapon
+		- BasicArmor
+
+### Tag
+
+**Tag** is **ScriptableObject** marker type (it contains no properties). Tags enable flexible constraints, such as restricting a **Slot** or a **Bag** to specific item types. This is achieved by intersecting tag sets. They are defined as `List<Tag>` on **ItemBase**, **Slot** and **Bag** types.
+
+<hr>
+
 ### Bag
 
 Bags are pure data containers. Think of a Bag as the state of an inventory — nothing more.
@@ -66,7 +143,7 @@ Because Bags are UI-agnostic, they can be reused across different interfaces or 
 Examples: Equipment, Shop, Crafting Bench
 
 
-### Item
+<!-- ### Item
 
 Items are based on ScriptableObject definitions (ItemBase) with runtime instances (Item).
 
@@ -75,7 +152,7 @@ Items describe what something is, not how it behaves in the UI.
 This allows:
 - Easy editor configuration
 - Reusable item definitions
-- Custom item types (e.g., container items)
+- Custom item types (e.g., container items) -->
 
 ### Store
 
