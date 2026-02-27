@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.0.1.825436574188">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.0.1.825520883378">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.0.1">
@@ -28,12 +28,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.0.1.825436574188" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.0.1.825520883378" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.0.1.825436574188" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.0.1.825520883378" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.0.1" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.0.1.825436574188" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.0.1.825436574188" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.0.1.825520883378" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.0.1.825520883378" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -306,6 +306,7 @@ In the meantime, reach out on Discord.</p>
         </div>
     </div>
 </div>
+<hr>
 <doc-anchor-target id="itembase">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#itembase">#</doc-anchor-trigger>
@@ -369,6 +370,7 @@ For example, all items in the Basic demo have a fixed <code translate="no" v-pre
 </ul>
 </li>
 </ul>
+<hr>
 <doc-anchor-target id="tag">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#tag">#</doc-anchor-trigger>
@@ -383,20 +385,67 @@ For example, all items in the Basic demo have a fixed <code translate="no" v-pre
         <span>Bag</span>
     </h3>
 </doc-anchor-target>
-<p>Bags are pure data containers. Think of a Bag as the state of an inventory — nothing more.</p>
-<p>A Bag stores items, does not contain UI logic but can define some gameplay rules. For example a bag can be configured to be remove only or accept only a certain type of items.</p>
-<p>Because Bags are UI-agnostic, they can be reused across different interfaces or even outside UI contexts (e.g., crafting systems, world storage, containers inside items).</p>
-<p>Examples: Equipment, Shop, Crafting Bench</p>
-<!-- ### Item
-
-Items are based on ScriptableObject definitions (ItemBase) with runtime instances (Item).
-
-Items describe what something is, not how it behaves in the UI.
-
-This allows:
-- Easy editor configuration
-- Reusable item definitions
-- Custom item types (e.g., container items) -->
+<p>A <strong>Bag</strong> is pure <strong>data container</strong>. It represents a well-defined slice of your game state and should be treated as the <strong>single source of truth</strong> for that slice.</p>
+<p><strong>Bag</strong> is an abstract class that defines the contract and shared behavior common to all bags, without enforcing any specific storage model. All state-changing behavior is implemented in concrete subclasses.</p>
+<p>The three primary implementations are <strong>ListBag</strong>, <strong>SetBag</strong> and <strong>GridBag</strong>.</p>
+<p><strong>Bags</strong> expose public methods to <strong>add</strong>, <strong>remove</strong>, or <strong>modify items</strong>. By convention, bag state should be mutated from a single place (for example, the <strong>Store</strong>, or main controller). This prevents hidden side effects and keeps state transitions explicit and predictable.</p>
+<p><strong>Bags</strong> emit <strong>change events</strong> when their state mutates. Other systems, such as UI views, gameplay systems, or persitence layers subscribe to these events and react accordingly (re-render or recompute internal state). For example, <strong>ListBagView</strong> listens to <strong>ItemChanged</strong> event on a ListBag. When raised, it re-renders only the affected slot. This keeps rendering logic decoupled from state mutation and avoids unnecessary full refreshes.</p>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1.5 rounded-tl-lg rounded-bl-lg bg-callout-info"></div>
+    <div class="flex w-full py-4 border border-l-0 rounded-tr-lg rounded-br-lg doc-callout bg-callout-base-bg border-callout-base-border" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-callout-info" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+<p>A Bag can be declared in a MonoBehaviour (state resets when exiting Play Mode), or in a ScriptableObject (state persists after Play Mode and can be reset manually).</p>
+        </div>
+    </div>
+</div>
+<doc-anchor-target id="listbag">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#listbag">#</doc-anchor-trigger>
+        <span>ListBag</span>
+    </h4>
+</doc-anchor-target>
+<p><strong>ListBag</strong> behaves like a fixed-size list. It contains an ordered collection of slots, indexed by position. In a <strong>ListBag</strong>, item size and spatial footprint is irrelevant.</p>
+<p><strong>ListBag</strong> is typically used when:</p>
+<ul>
+<li>order matters (hotbar, quick access list)</li>
+<li>layout is purely visual (can be displayed horizontally, vertically or as a grid)</li>
+<li>all items occupy a single logical slot (1x1)</li>
+</ul>
+<doc-anchor-target id="setbag">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#setbag">#</doc-anchor-trigger>
+        <span>SetBag</span>
+    </h4>
+</doc-anchor-target>
+<p><strong>SetBag</strong> behaves conceptually like a dictionary. It maps predefined slot keys to item content.</p>
+<ul>
+<li>Slots are identified by semantic keys (<em>Helmet, Weapon, Ring</em>).</li>
+<li>Slot identity is more important than position</li>
+<li>A Slot typically enforces constraints on what it can accept.</li>
+</ul>
+<p><strong>SetBag</strong> is typically used in Equipment systems.</p>
+<doc-anchor-target id="gridbag">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#gridbag">#</doc-anchor-trigger>
+        <span>GridBag</span>
+    </h4>
+</doc-anchor-target>
+<p><strong>GridBag</strong> models a two-dimensianal spatial container. Unlike <strong>ListBag</strong>, layout is not purely representational. Spatial structure becomes part of gameplay, allowing players to optimize positioning and capacity.</p>
+<ul>
+<li>Items occupy multiple cells.</li>
+<li>Placement requires spatial validation.</li>
+<li>Position and orientation matter.</li>
+</ul>
+<hr>
 <doc-anchor-target id="store">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#store">#</doc-anchor-trigger>
