@@ -80,6 +80,8 @@ You can bridge an existing item system with Inventory Framework. A guide for tha
 In the meantime, reach out on Discord.
 !!!
 
+<hr>
+
 ### ItemBase
 
 **ItemBase** is implemented as a **ScriptableObject**. It describes what an item is, and not how it bahaves.
@@ -126,6 +128,8 @@ Example hierarchy from the **Basic Demo**:
 		- BasicWeapon (damage)
 		- BasicArmor (defense)
 
+<hr>
+
 ### Tag
 
 **Tag** is **ScriptableObject** marker type (it contains no properties). Tags enable flexible constraints, such as restricting a **Slot** or a **Bag** to specific item types. This is achieved by intersecting tag sets. They are defined as `List<Tag>` on **ItemBase**, **Slot** and **Bag** types.
@@ -134,25 +138,48 @@ Example hierarchy from the **Basic Demo**:
 
 ### Bag
 
-Bags are pure data containers. Think of a Bag as the state of an inventory — nothing more.
+A **Bag** is pure **data container**. It represents a well-defined slice of your game state and should be treated as the **single source of truth** for that slice.
 
-A Bag stores items, does not contain UI logic but can define some gameplay rules. For example a bag can be configured to be remove only or accept only a certain type of items.
+**Bag** is an abstract class that defines the contract and shared behavior common to all bags, without enforcing any specific storage model. All state-changing behavior is implemented in concrete subclasses.
 
-Because Bags are UI-agnostic, they can be reused across different interfaces or even outside UI contexts (e.g., crafting systems, world storage, containers inside items).
+The three primary implementations are **ListBag**, **SetBag** and **GridBag**. 
 
-Examples: Equipment, Shop, Crafting Bench
+**Bags** expose public methods to **add**, **remove**, or **modify items**. By convention, bag state should be mutated from a single place (for example, the **Store**, or main controller). This prevents hidden side effects and keeps state transitions explicit and predictable. 
+
+**Bags** emit **change events** when their state mutates. Other systems, such as UI views, gameplay systems, or persitence layers subscribe to these events and react accordingly (re-render or recompute internal state). For example, **ListBagView** listens to **ItemChanged** event on a ListBag. When raised, it re-renders only the affected slot. This keeps rendering logic decoupled from state mutation and avoids unnecessary full refreshes.
+
+!!!info 
+A Bag can be declared in a MonoBehaviour (state resets when exiting Play Mode), or in a ScriptableObject (state persists after Play Mode and can be reset manually).
+!!!
+
+#### ListBag
+**ListBag** behaves like a fixed-size list. It contains an ordered collection of slots, indexed by position. In a **ListBag**, item size and spatial footprint is irrelevant. 
+
+**ListBag** is typically used when:
+- order matters (hotbar, quick access list)
+- layout is purely visual (can be displayed horizontally, vertically or as a grid)
+- all items occupy a single logical slot (1x1)
+
+#### SetBag
+**SetBag** behaves conceptually like a dictionary. It maps predefined slot keys to item content.
+
+- Slots are identified by semantic keys (*Helmet, Weapon, Ring*). 
+- Slot identity is more important than position
+- A Slot typically enforces constraints on what it can accept. 
+
+**SetBag** is typically used in Equipment systems.
+
+#### GridBag
+
+**GridBag** models a two-dimensianal spatial container. Unlike **ListBag**, layout is not purely representational. Spatial structure becomes part of gameplay, allowing players to optimize positioning and capacity.
+
+- Items occupy multiple cells.
+- Placement requires spatial validation.
+- Position and orientation matter.
 
 
-<!-- ### Item
 
-Items are based on ScriptableObject definitions (ItemBase) with runtime instances (Item).
-
-Items describe what something is, not how it behaves in the UI.
-
-This allows:
-- Easy editor configuration
-- Reusable item definitions
-- Custom item types (e.g., container items) -->
+<hr>
 
 ### Store
 
