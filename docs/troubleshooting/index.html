@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.1.0.825960020865">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.1.0.825964440659">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.1.0">
@@ -32,11 +32,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.1.0.825960020865" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.1.0.825964440659" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.1.0.825960020865" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.1.0.825964440659" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.1.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.1.0.825960020865" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.1.0.825964440659" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -267,6 +267,23 @@
     </h3>
 </doc-anchor-target>
 <p>Make sure the class is marked as <strong>Serializable</strong>.</p>
+<hr>
+<doc-anchor-target id="no-gui-implemented">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#no-gui-implemented">#</doc-anchor-trigger>
+        <span>No GUI Implemented</span>
+    </h3>
+</doc-anchor-target>
+<p>&quot;<em>No GUI Implemented</em>&quot; text in the inspector is usually caused by tools like <strong>vInspector</strong> which override default <code translate="no" v-pre>PropertyDrawer</code> behavior.</p>
+<ul>
+<li>Disable/uninstall <strong>vInspector</strong> (or similar) from package manager</li>
+<li>Some users reported that installing <strong>Odin</strong> fixes the issue without uninstalling the misbehaving package</li>
+</ul>
+<p><figure class="content-center">
+    <img src="../../static/images/no-gui.png" alt="" class="rounded-image-rounded border-image-border border-image-border-width" />
+    <figcaption class="caption"></figcaption>
+</figure>
+</p>
 
                 
                 <!-- Required only on API pages -->
