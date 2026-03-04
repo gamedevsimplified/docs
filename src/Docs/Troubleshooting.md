@@ -36,3 +36,14 @@ In rare cases, themes may become corrupted during import. This is usually caused
 ### Bag doesn't show up in the inspector
 
 Make sure the class is marked as **Serializable**.
+
+<hr>
+
+### No GUI Implemented
+
+"*No GUI Implemented*" text in the inspector is usually caused by tools like **vInspector** which override default `PropertyDrawer` behavior.
+
+- Disable/uninstall **vInspector** (or similar) from package manager
+- Some users reported that installing **Odin** fixes the issue without uninstalling the misbehaving package
+
+![](/static/images/no-gui.png)
