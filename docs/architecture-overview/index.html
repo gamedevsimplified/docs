@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.0.1.825520883378">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.1.0.825960020865">
 
     <!-- See retype.com -->
-    <meta name="generator" content="Retype 4.0.1">
+    <meta name="generator" content="Retype 4.1.0">
 
     <!-- Primary Meta Tags -->
     <title>Architecture Overview &#128679;</title>
@@ -28,12 +28,12 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.0.1.825520883378" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.1.0.825960020865" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.0.1.825520883378" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.0.1" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.0.1.825520883378" data-turbo-eval="false" defer></script>
-    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.0.1.825520883378" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.1.0.825960020865" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/retype.js?v=4.1.0" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.1.0.825960020865" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../resources/js/prism.js?v=4.1.0.825960020865" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -245,7 +245,7 @@
 <li><strong>Scripts</strong> other than the <strong>Store</strong>, can listen to events on the <strong>Event Bus</strong> and trigger their own behavior (play sounds, spawn objects).</li>
 </ul>
 <p>The system follows a unidirectional flow: user input generates events, the Store processes them, state updates, and views react to changes:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="overview-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-none"><code v-pre class="language-none">UI → Manipulator → EventBus → Store → Bag → BagView</code></pre>
 </doc-codeblock></div>
 <p>To sum up here are the major components and their responsibilities:</p>
@@ -316,7 +316,7 @@ In the meantime, reach out on Discord.</p>
 <p><strong>ItemBase</strong> is implemented as a <strong>ScriptableObject</strong>. It describes what an item is, and not how it bahaves.</p>
 <p>Each <strong>ItemBase</strong> has a factory method responsible for creating and initializing an <strong>Item</strong> instance of the associated type.</p>
 <p>For example, in the <strong>Basic Demo</strong>, the Axe <strong>ItemBase</strong> has a fixed attack damage range. Upon instantiation, the Axe instance will roll attack damage from its base attack range and store in <code translate="no" v-pre>AttackDamage</code> property.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="itembase-code-1" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-csharp"><code v-pre class="language-csharp">public class Basic_WeaponBase : Basic_ItemBase { /* ... */	
 	public IntRange DamageRange;
 	public override Item CreateItem() =&gt; new Basic_Weapon { /* ... */		
@@ -326,7 +326,7 @@ In the meantime, reach out on Discord.</p>
 </doc-codeblock></div>
 <p>To extend the functionality of an <strong>Item</strong>, extend the <strong>ItemBase</strong> and override the factory method.
 For example, all items in the Basic demo have a fixed <code translate="no" v-pre>Weight</code> and <code translate="no" v-pre>Cost</code>, but variable <code translate="no" v-pre>Rarity</code>:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
+<div id="itembase-code-2" class="codeblock-wrapper"><doc-codeblock>
 <pre translate="no" class="language-csharp"><code v-pre class="language-csharp">    [CreateAssetMenu(menuName = &quot;SO/Demos/Basic/Basic_ItemBase&quot;)]
     public class Basic_ItemBase : ItemBase {
         public int Weight = 1;
@@ -452,16 +452,26 @@ For example, all items in the Basic demo have a fixed <code translate="no" v-pre
         <span>Store</span>
     </h3>
 </doc-anchor-target>
-<p>Stores contain the logic of the system.</p>
-<p>A Store:</p>
-<ul>
-<li>Listens to events (e.g., Pick, Place, Drop)</li>
-<li>Applies validation rules</li>
-<li>Updates Bags</li>
-<li>Publishes result events</li>
-</ul>
-<p>For example, a Store decides whether an item can be moved, whether stacks can merge, what happens when an item is dropped into the world.</p>
-<p>Stores define what is allowed, but they do not render anything. This makes behavior easy to customize — you can swap or extend Stores without changing Views.</p>
+<p>The <strong>Store</strong> is the central authority responsible for enforcing business rules, updating state (<strong>Bags</strong>), and publishing result events. It coordinates user input, inventory state, and external systems, acting as the single source of truth for state transitions.</p>
+<p>A <strong>Store</strong> is defined as a <strong>ScriptableObject</strong> and can contain globally accessible state, acting as a singleton.</p>
+<p>Rules defined in the <strong>Store</strong> operate on the system level - they take the entire system state into account rather than operating on isolated components. For example, the <strong>Store</strong> can define what should happen when a player <code translate="no" v-pre>Ctrl+clicks</code> an item while the shop window is open, determine whether an item can be stacked or split, or coordinate interactions between multiple bags.</p>
+<p>By convention, only the <strong>Store</strong> is allowed to modify <strong>Bags</strong>. This ensures predictable state transitions, centralized validation, and a clear architectural boundary. <strong>Bags</strong> themselves are passive data structures; they do not enforce global or cross-bag rules.</p>
+<p>When state changes occur, the <strong>Store</strong> publishes result events through an <strong>Event Bus</strong>. This allows other systems to react without maintaining hard references to the source of the change. For example, a <strong>MonoBehaviour</strong> can play a sound when an item is successfully picked up or placed, UI components can animate slot updates, or game systems can respond when an item is dropped into the world.</p>
+<p>The abstract <strong>Store</strong> contains a reference to an Event Bus and a Ghost Item. The Ghost Item represents the item currently being manipulated, such as during drag-and-drop operations.</p>
+<p>For simple scenarios, <strong>Stores</strong> defined in <strong>Examples</strong> can be reused. The <strong>Minimal Example Store</strong> supports basic drag-and-drop behavior, while the <strong>Stacking Example Store</strong> extends this with stack splitting and stacking rules. More advanced use cases require custom Store implementations. For example, the <strong>Basic Demo Store</strong> creates a bridge between the UI and the game world by defining rules for dropping items from the inventory into the world.</p>
+<!-- Stores contain the logic of the system.
+
+A Store:
+
+- Listens to events (e.g., Pick, Place, Drop)
+- Applies validation rules
+- Updates Bags
+- Publishes result events
+
+For example, a Store decides whether an item can be moved, whether stacks can merge, what happens when an item is dropped into the world.
+
+Stores define what is allowed, but they do not render anything. This makes behavior easy to customize — you can swap or extend Stores without changing Views. -->
+<hr>
 <doc-anchor-target id="manipulator">
     <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#manipulator">#</doc-anchor-trigger>
