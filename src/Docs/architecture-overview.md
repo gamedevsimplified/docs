@@ -183,7 +183,21 @@ A Bag can be declared in a MonoBehaviour (state resets when exiting Play Mode), 
 
 ### Store
 
-Stores contain the logic of the system.
+The **Store** is the central authority responsible for enforcing business rules, updating state (**Bags**), and publishing result events. It coordinates user input, inventory state, and external systems, acting as the single source of truth for state transitions.
+
+A **Store** is defined as a **ScriptableObject** and can contain globally accessible state, acting as a singleton.
+
+Rules defined in the **Store** operate on the system level - they take the entire system state into account rather than operating on isolated components. For example, the **Store** can define what should happen when a player `Ctrl+clicks` an item while the shop window is open, determine whether an item can be stacked or split, or coordinate interactions between multiple bags.
+
+By convention, only the **Store** is allowed to modify **Bags**. This ensures predictable state transitions, centralized validation, and a clear architectural boundary. **Bags** themselves are passive data structures; they do not enforce global or cross-bag rules.
+
+When state changes occur, the **Store** publishes result events through an **Event Bus**. This allows other systems to react without maintaining hard references to the source of the change. For example, a **MonoBehaviour** can play a sound when an item is successfully picked up or placed, UI components can animate slot updates, or game systems can respond when an item is dropped into the world.
+
+The abstract **Store** contains a reference to an Event Bus and a Ghost Item. The Ghost Item represents the item currently being manipulated, such as during drag-and-drop operations.
+
+For simple scenarios, **Stores** defined in **Examples** can be reused. The **Minimal Example Store** supports basic drag-and-drop behavior, while the **Stacking Example Store** extends this with stack splitting and stacking rules. More advanced use cases require custom Store implementations. For example, the **Basic Demo Store** creates a bridge between the UI and the game world by defining rules for dropping items from the inventory into the world.
+
+<!-- Stores contain the logic of the system.
 
 A Store:
 
@@ -194,7 +208,9 @@ A Store:
 
 For example, a Store decides whether an item can be moved, whether stacks can merge, what happens when an item is dropped into the world.
 
-Stores define what is allowed, but they do not render anything. This makes behavior easy to customize — you can swap or extend Stores without changing Views.
+Stores define what is allowed, but they do not render anything. This makes behavior easy to customize — you can swap or extend Stores without changing Views. -->
+
+<hr>
 
 ### Manipulator
 
