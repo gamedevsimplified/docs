@@ -1,9 +1,7 @@
 ---
 order: 600
-title: Troubleshooting 🚧
+title: Troubleshooting
 ---
-
-{{ include "snippets/wip" }}
 
 ### Discord Server
 
