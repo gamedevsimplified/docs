@@ -1,0 +1,31 @@
+﻿# Inventory Framework v2
+
+> A versatile and extensible framework for creating inventories.
+
+- [Inventory Framework v2](https://gamedevsimplified.github.io/docs/index.md): Inventory Framework v2
+- [Live demos](https://gamedevsimplified.github.io/docs/live-demos/index.md): Basic
+
+## Docs
+
+- [Introduction](https://gamedevsimplified.github.io/docs/docs/introduction.md): Inventory Framework draws inspiration from games like Minecraft, Dark Souls, Witcher 3, Diablo II, Path of Exile, Backpack Battles, DayZ, and Escape from Tarkov.
+- [Getting Started](https://gamedevsimplified.github.io/docs/docs/getting-started.md): The best way to get started is by exploring the demos and examples.
+- [Architecture Overview](https://gamedevsimplified.github.io/docs/docs/architecture-overview.md): The framework follows a data-driven, event-based architecture. It keeps the data, logic and UI separate.
+- [Troubleshooting](https://gamedevsimplified.github.io/docs/docs/troubleshooting.md): Join the Discord server for additional support from the developer and the community.
+- [Roadmap](https://gamedevsimplified.github.io/docs/docs/roadmap.md): Add support for UGUI
+- [v1 Docs](https://gamedevsimplified.github.io/docs/docs/v1-docs.md): The old website was moved here
+
+## Core API
+
+- [Bag 🚧](https://gamedevsimplified.github.io/docs/core-api/bag.md): Bag is the abstract base class for all inventory containers. It defines the common contract for storing, validating, and manipulating Item instances. The base implementation intentionally does very little — most methods return Fail or Success by default.
+- [ListBag 🚧](https://gamedevsimplified.github.io/docs/core-api/listbag.md)
+- [SetBag 🚧](https://gamedevsimplified.github.io/docs/core-api/setbag.md)
+- [GridBag 🚧](https://gamedevsimplified.github.io/docs/core-api/gridbag.md)
+
+## Live demos
+
+- [ARPG](https://gamedevsimplified.github.io/docs/live-demos/arpg.md)
+- [Backpack](https://gamedevsimplified.github.io/docs/live-demos/backpack.md)
+- [Basic](https://gamedevsimplified.github.io/docs/live-demos/basic.md)
+- [FPS Survival](https://gamedevsimplified.github.io/docs/live-demos/fps-survival.md)
+- [Starter Template](https://gamedevsimplified.github.io/docs/live-demos/starter-template.md)
+- [Unnamed Game](https://gamedevsimplified.github.io/docs/live-demos/unnamed-game.md): A "backpack" inventory proof of concept built on top of a mock-up by Yab Ninja (author and game creator)

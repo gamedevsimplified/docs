@@ -1,0 +1,12 @@
+![](/static/images/branding-yt-2.png)
+
+{.callout}
+> A versatile and extensible framework for creating inventories.
+
+The purpose of this package is to provide a versatile and extensible solution for creating inventories in Unity. Its design allows developers to quickly set up functional inventories while offering the flexibility to extend and adapt to custom use cases.
+
+The framework supports a variety of inventory types, making it suitable for a wide range of games.
+
+It also comes bundled with an abstract yet powerful **item system** that minimizes setup while supporting diverse use cases.
+
+This package is targeted at **programmers** but can be used by non programmers. **Some coding is still required** to implement custom functionality.
