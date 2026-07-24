@@ -1,5 +1,5 @@
 ---
-label: Inventory Framework v2
+label: Inventory Framework
 icon: home
 ---
 
