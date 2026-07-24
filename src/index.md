@@ -6,14 +6,12 @@ icon: home
 ![](/static/images/branding-yt-2.png)
 
 {.callout}
-> A versatile and extensible framework for creating inventories using UI Toolkit.
+> A versatile and extensible framework for creating inventories.
 
 
 The purpose of this package is to provide a versatile and extensible solution for creating inventories in Unity. Its design allows developers to quickly set up functional inventories while offering the flexibility to extend and adapt to custom use cases.
 
 The framework supports a variety of inventory types, making it suitable for a wide range of games.
-
-Built on **UI Toolkit**, it offers advanced styling and layout capabilities while avoiding the overhead of GameObjects and Prefabs.
 
 It also comes bundled with an abstract yet powerful **item system** that minimizes setup while supporting diverse use cases.
 
