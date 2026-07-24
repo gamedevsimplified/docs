@@ -1,8 +1,8 @@
-﻿# Inventory Framework v2
+﻿# Inventory Framework
 
 > A versatile and extensible framework for creating inventories.
 
-- [Inventory Framework v2](https://gamedevsimplified.github.io/docs/index.md): Inventory Framework v2
+- [Inventory Framework](https://gamedevsimplified.github.io/docs/index.md): Inventory Framework
 - [Live demos](https://gamedevsimplified.github.io/docs/live-demos/index.md): Basic
 
 ## Docs
