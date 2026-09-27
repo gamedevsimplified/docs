@@ -2,11 +2,11 @@
 order: 400
 ---
 
-- Add support for **UGUI**
-- Add (some) **controller** support/examples
+- Add **controller** support/examples
 - Various optimizations (pool events, ~~change detection~~)
 - Add item sorting to **Core**
-- Enhance demos
 - Add a **mobile** demo
+- ~~Add **multiplayer** examples~~
+- ~~Add support for **UGUI**~~
 - ~~Improve Editor support~~
 - ~~Add **Scriptable Objects** support~~

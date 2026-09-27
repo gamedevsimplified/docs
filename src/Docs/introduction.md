@@ -35,15 +35,18 @@ Features and mechanics like these are deceptively complex. Supporting rotation, 
 
 ![Inventory Tetris](/static/images/inventory-tetris.jpg)
 
-### UI Toolkit
+### UI System
 
-**UI Toolkit** is the UI system of choice (*for now*). It is well-suited for inventory interfaces, due to it's declarative nature and built-in flexible layout system. 
+Both **UGUI** and **UI Toolkit** are supported but **UGUI** is the preferred UI system. It has better editor integration and more examples.
+
+![Editor support](/static/images/editor-support.jpg)
+
+### UI Toolkit
 
 **UI Builder** allows you to iterate on styling and layout without recompilation, which significantly improves workflow when designing inventory screens. **Styling** through **themes** and **USS** rules can be extremely powerful, though it sometimes introduces its own challenges when managing specificity and debugging style conflicts. 
 
 **Transitions** (scale, rotation), **hover states** (border on mouse over), and **runtime theme switching** come "*for free*" in **UI Toolkit** as opposed to traditional `GameObjects` and `Prefabs`.
 
-That being said, **UGUI** is still a *thing* and support for it is on the [roadmap](/docs/roadmap)!
 
 ![UI Builder](/static/images/ui-builder.jpg)
 

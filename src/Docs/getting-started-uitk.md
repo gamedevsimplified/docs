@@ -1,6 +1,6 @@
 ---
-order: 1000
-title: Getting Started
+order: 1001
+title: Getting Started (UITK)
 ---
 
 The best way to get started is by exploring the demos and examples. 

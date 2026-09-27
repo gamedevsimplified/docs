@@ -3,6 +3,6 @@
     "start": "retype start"
   },
   "dependencies": {
-    "retypeapp": "^3.10.1"
+    "retypeapp": "^4.6.0"
   }
 }
