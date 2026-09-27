@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark">
     <meta name="turbo-root" content="/docs">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.838204207007">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="4.6.0.843822129299">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 4.6.0">
@@ -44,11 +44,11 @@
 
     <script data-cfasync="false">(function(){var cl=document.documentElement.classList,ls=localStorage.getItem("retype_scheme"),hd=cl.contains("dark"),hl=cl.contains("light"),wm=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;if(ls==="dark"||(!ls&&wm&&!hd&&!hl)){cl.remove("light");cl.add("dark")}else if(ls==="light"||(!ls&&!wm&&!hd&&!hl)){cl.remove("dark");cl.add("light")}})();</script>
 
-    <link href="../../resources/css/retype.css?v=4.6.0.838204207007" rel="stylesheet">
+    <link href="../../resources/css/retype.css?v=4.6.0.843822129299" rel="stylesheet">
 
-    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.838204207007" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../resources/js/config.js?v=4.6.0.843822129299" data-turbo-eval="false" defer></script>
     <script data-cfasync="false" src="../../resources/js/retype.js?v=4.6.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.838204207007" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../resources/js/lunr.js?v=4.6.0.843822129299" data-turbo-eval="false" defer></script>
 </head>
 <body>
     <div id="retype-app" class="relative text-base antialiased text-base-text bg-base-bg font-body">
@@ -228,11 +228,15 @@
     <img src="../../static/images/inventory-tetris.jpg" alt="Inventory Tetris" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="783" height="479" />
     <figcaption class="caption">Inventory Tetris</figcaption>
 </figure>
+<h3 id="ui-system">UI System</h3>
+<p>Both <strong>UGUI</strong> and <strong>UI Toolkit</strong> are supported but <strong>UGUI</strong> is the preferred UI system. It has better editor integration and more examples.</p>
+<figure class="content-center">
+    <img src="../../static/images/editor-support.jpg" alt="Editor support" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="677" height="857" />
+    <figcaption class="caption">Editor support</figcaption>
+</figure>
 <h3 id="ui-toolkit">UI Toolkit</h3>
-<p><strong>UI Toolkit</strong> is the UI system of choice (<em>for now</em>). It is well-suited for inventory interfaces, due to it&#x27;s declarative nature and built-in flexible layout system.</p>
 <p><strong>UI Builder</strong> allows you to iterate on styling and layout without recompilation, which significantly improves workflow when designing inventory screens. <strong>Styling</strong> through <strong>themes</strong> and <strong>USS</strong> rules can be extremely powerful, though it sometimes introduces its own challenges when managing specificity and debugging style conflicts.</p>
 <p><strong>Transitions</strong> (scale, rotation), <strong>hover states</strong> (border on mouse over), and <strong>runtime theme switching</strong> come &quot;<em>for free</em>&quot; in <strong>UI Toolkit</strong> as opposed to traditional <code translate="no" v-pre>GameObjects</code> and <code translate="no" v-pre>Prefabs</code>.</p>
-<p>That being said, <strong>UGUI</strong> is still a <em>thing</em> and support for it is on the <a href="../roadmap/">roadmap</a>!</p>
 <figure class="content-center">
     <img src="../../static/images/ui-builder.jpg" alt="UI Builder" class="max-w-full h-auto rounded-image-rounded border-image-border border-image-border-width" width="1461" height="691" />
     <figcaption class="caption">UI Builder</figcaption>
@@ -280,10 +284,10 @@
                     </div>
             
                     <div class="w-1/2">
-                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../docs/getting-started/">
+                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-body-link border border-base-border hover:border-base-border-hover rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../docs/getting-started-ugui/">
                             <span>
                                 <span class="block text-xs font-normal text-right text-base-text-muted">Next</span>
-                                <span class="block mt-1">Getting Started</span>
+                                <span class="block mt-1">Getting Started (UGUI)</span>
                             </span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                         </a>
